@@ -11,13 +11,18 @@ export interface Service {
   featured: boolean;
 }
 
+export interface PackageService {
+  serviceId: string;
+  free: boolean;
+}
+
 export interface Package {
   id: string;
   name: string;
   description: string;
   price: number;
   originalPrice?: number;
-  features: string[];
+  services: PackageService[];
   popular: boolean;
   category: "basic" | "standard" | "premium";
 }
@@ -47,4 +52,14 @@ export interface TeamMember {
   role: string;
   bio: string;
   avatar: string;
+}
+
+export interface Product {
+  id: string;
+  slug: string;
+  title: string;
+  description: string;
+  longDescription: string;
+  image: string;
+  price?: number;
 }
