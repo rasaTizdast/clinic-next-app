@@ -9,7 +9,7 @@ const navLinks = [
   { href: "/", label: "خانه" },
   { href: "/services", label: "خدمات" },
   { href: "/packages", label: "پکیج\u200cها" },
-  { href: "/offers", label: "پیشنهادات" },
+  { href: "/products", label: "محصولات" },
   { href: "/about", label: "درباره ما" },
   { href: "/contact", label: "تماس با ما" },
 ];

@@ -12,7 +12,7 @@ const footerLinks = {
   company: [
     { href: "/about", label: "درباره ما" },
     { href: "/packages", label: "پکیج\u200cها" },
-    { href: "/offers", label: "پیشنهادات" },
+    { href: "/products", label: "محصولات" },
     { href: "/contact", label: "تماس با ما" },
   ],
 };
