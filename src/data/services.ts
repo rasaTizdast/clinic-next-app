@@ -111,6 +111,10 @@ export function getServices(): Service[] {
   return services;
 }
 
+export function getServiceById(id: string): Service | undefined {
+  return services.find((s) => s.id === id);
+}
+
 export function getServiceBySlug(slug: string): Service | undefined {
   return services.find((s) => s.slug === slug);
 }

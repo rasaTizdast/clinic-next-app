@@ -27,17 +27,6 @@ export interface Package {
   category: "basic" | "standard" | "premium";
 }
 
-export interface Offer {
-  id: string;
-  title: string;
-  description: string;
-  discount: number;
-  discountType: "percent" | "fixed";
-  expiryDate: string;
-  serviceIds: string[];
-  active: boolean;
-}
-
 export interface Testimonial {
   id: string;
   name: string;

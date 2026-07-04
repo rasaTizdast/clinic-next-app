@@ -1,6 +1,5 @@
 import { Suspense } from "react";
 import { getTeam } from "@/data";
-import { Container } from "@/components/layout/Container";
 import { Section } from "@/components/layout/Section";
 import { StoryChapter } from "@/components/landing/StoryChapter";
 import { TeamMember } from "@/components/shared/TeamMember";

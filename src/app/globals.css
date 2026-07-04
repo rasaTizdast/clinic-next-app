@@ -13,7 +13,7 @@
   --color-success: #6B8F5E;
   --color-surface: #FFFFFF;
 
-  --font-vazirmatn: "Vazirmatn", sans-serif;
+  --font-sans: "Estedad", sans-serif;
 
   --shadow-sm: 0 1px 2px rgba(45, 42, 38, 0.05);
   --shadow-md: 0 4px 12px rgba(45, 42, 38, 0.08);
@@ -34,7 +34,7 @@
   }
 
   body {
-    font-family: var(--font-vazirmatn);
+    font-family: var(--font-sans);
     background-color: var(--color-background);
     color: var(--color-foreground);
     -webkit-font-smoothing: antialiased;
