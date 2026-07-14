@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -16,23 +16,42 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
+    <header
+      className={cn(
+        "sticky top-0 z-50 transition-all duration-500",
+        scrolled
+          ? "bg-background/90 backdrop-blur-xl backdrop-saturate-150 border-b border-border/40 shadow-sm"
+          : "bg-transparent border-b border-transparent"
+      )}
+    >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex h-16 items-center justify-between">
+        <div className="flex h-20 items-center justify-between">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-primary">کلینیک زیبا</span>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm transition-transform duration-300 group-hover:scale-110">
+              ب
+            </div>
+            <span className="text-xl font-bold text-foreground tracking-tight">
+              کلینیک <span className="text-primary">باران</span>
+            </span>
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-6">
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-foreground/70 hover:text-primary transition-colors duration-200"
+                className="text-[15px] font-medium text-foreground/60 hover:text-primary transition-colors duration-300"
               >
                 {link.label}
               </Link>
@@ -40,17 +59,17 @@ export function Header() {
           </nav>
 
           {/* CTA + Mobile Toggle */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-6">
             <a
               href="tel:+989121234567"
-              className="hidden sm:flex items-center gap-2 text-sm font-medium text-primary hover:text-primary-light transition-colors"
+              className="hidden md:flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-light transition-colors duration-300"
             >
               <Phone className="h-4 w-4" />
               <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
             </a>
             <button
               type="button"
-              className="md:hidden p-2 text-foreground/70 hover:text-primary cursor-pointer"
+              className="lg:hidden p-2 text-foreground/70 hover:text-primary cursor-pointer transition-colors duration-300 active:scale-95"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               aria-label={mobileMenuOpen ? "بستن منو" : "باز کردن منو"}
             >
@@ -67,28 +86,36 @@ export function Header() {
       {/* Mobile Nav */}
       <div
         className={cn(
-          "md:hidden overflow-hidden transition-all duration-300 ease-in-out",
-          mobileMenuOpen ? "max-h-96" : "max-h-0"
+          "lg:hidden overflow-hidden transition-all duration-500",
+          "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
+          mobileMenuOpen
+            ? "opacity-100 translate-y-0 max-h-96 border-b border-border/40"
+            : "opacity-0 -translate-y-4 pointer-events-none max-h-0 border-b-transparent"
         )}
       >
-        <nav className="px-4 py-4 space-y-2 bg-surface border-t border-border">
-          {navLinks.map((link) => (
+        <nav className="px-4 py-6 space-y-1 bg-background/95 backdrop-blur-xl border-t border-border/40">
+          {navLinks.map((link, i) => (
             <Link
               key={link.href}
               href={link.href}
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-4 py-2 text-sm font-medium text-foreground/70 hover:text-primary hover:bg-muted rounded-lg transition-colors"
+              className="block px-4 py-3 text-[15px] font-medium text-foreground/70 hover:text-primary hover:bg-muted/50 rounded-xl transition-all duration-300"
+              style={{
+                transitionDelay: mobileMenuOpen ? `${i * 50}ms` : "0ms",
+              }}
             >
               {link.label}
             </Link>
           ))}
-          <a
-            href="tel:+989121234567"
-            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-primary"
-          >
-            <Phone className="h-4 w-4" />
-            <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
-          </a>
+          <div className="pt-4 px-4 border-t border-border/40">
+            <a
+              href="tel:+989121234567"
+              className="flex items-center gap-2 text-sm font-semibold text-primary"
+            >
+              <Phone className="h-4 w-4" />
+              <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
+            </a>
+          </div>
         </nav>
       </div>
     </header>
