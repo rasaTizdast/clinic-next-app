@@ -51,7 +51,7 @@ export function Header() {
         "sticky top-0 z-50 transition-all duration-500",
         scrolled
           ? "bg-background/90 backdrop-blur-xl backdrop-saturate-150 border-b border-border/40 shadow-sm"
-          : "bg-transparent border-b border-transparent"
+          : "bg-transparent border-b border-transparent",
       )}
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -113,10 +113,10 @@ export function Header() {
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
           mobileMenuOpen
             ? "opacity-100 translate-y-0 visible"
-            : "opacity-0 -translate-y-2 pointer-events-none invisible"
+            : "opacity-0 -translate-y-2 pointer-events-none invisible",
         )}
       >
-        <nav className="mx-4 mb-4 p-4 space-y-1 bg-background/95 backdrop-blur-2xl rounded-2xl shadow-xl shadow-foreground/10 border border-border/50">
+        <nav className="mx-4 mt-2 mb-4 p-4 space-y-1 bg-surface backdrop-blur-2xl rounded-2xl shadow-2xl shadow-foreground/15 border border-border">
           {navLinks.map((link, i) => (
             <Link
               key={link.href}
