@@ -105,13 +105,13 @@ export function Header() {
         </div>
       </div>
 
-      {/* Backdrop overlay */}
+      {/* Backdrop overlay - blurs page below header */}
       <div
         className={cn(
           "lg:hidden bg-foreground/20 backdrop-blur-sm transition-opacity duration-300",
           mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         )}
-        style={{ position: "fixed", top: 0, left: 0, right: 0, bottom: 0, zIndex: 40 }}
+        style={{ position: "fixed", top: "80px", left: 0, right: 0, bottom: 0, zIndex: 40 }}
         onClick={() => setMobileMenuOpen(false)}
       />
 
