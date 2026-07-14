@@ -40,12 +40,12 @@ export function HeroSection() {
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary via-primary-light to-primary">اعتماد به نفس</span> واقعی
             </h1>
             
-            <p className="hero-stagger-3 text-xl sm:text-2xl text-foreground/60 mb-12 max-w-2xl leading-relaxed font-light">
+            <p className="hero-stagger-4 text-xl sm:text-2xl text-foreground/60 mb-12 max-w-2xl leading-relaxed font-light">
               در کلینیک زیبایی باران، با بهترین متخصصان و پیشرفته‌ترین تجهیزات، زیبایی
               طبیعی خود را کشف کنید.
             </p>
             
-            <div className="hero-stagger-4 flex flex-col sm:flex-row gap-4">
+            <div className="hero-stagger-5 flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
                 <Button size="lg" className="gap-2 bg-primary hover:bg-primary-light text-white shadow-xl shadow-primary/30 btn-premium rounded-xl">
                   رزرو مشاوره رایگان
