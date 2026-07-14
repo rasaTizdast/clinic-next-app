@@ -18,7 +18,7 @@ export function HeroSection() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Image Column */}
           <div className="order-2 lg:order-1 hero-stagger-1">
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+            <div className="relative rounded-2xl overflow-hidden shadow-xl bg-secondary">
               <img
                 src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop"
                 alt="کلینیک زیبایی باران"
@@ -40,20 +40,20 @@ export function HeroSection() {
               <span className="text-transparent bg-clip-text bg-gradient-to-l from-primary via-primary-light to-primary">اعتماد به نفس</span> واقعی
             </h1>
             
-            <p className="hero-stagger-4 text-xl sm:text-2xl text-foreground/60 mb-12 max-w-2xl leading-relaxed font-light">
+            <p className="hero-stagger-3 text-xl sm:text-2xl text-foreground/60 mb-12 max-w-2xl leading-relaxed font-light">
               در کلینیک زیبایی باران، با بهترین متخصصان و پیشرفته‌ترین تجهیزات، زیبایی
               طبیعی خود را کشف کنید.
             </p>
             
             <div className="hero-stagger-4 flex flex-col sm:flex-row gap-4">
               <Link href="/contact">
-                <Button size="lg" className="gap-2 bg-primary hover:bg-primary-light text-white px-8 py-4 text-lg shadow-xl shadow-primary/30 btn-premium rounded-xl">
+                <Button size="lg" className="gap-2 bg-primary hover:bg-primary-light text-white shadow-xl shadow-primary/30 btn-premium rounded-xl">
                   رزرو مشاوره رایگان
                   <ArrowLeft className="h-5 w-5" />
                 </Button>
               </Link>
               <Link href="/services">
-                <Button variant="ghost" size="lg" className="text-foreground hover:text-primary hover:bg-secondary border border-border px-8 py-4 text-lg rounded-xl transition-all duration-300">
+                <Button variant="ghost" size="lg" className="text-foreground hover:text-primary hover:bg-secondary border border-border rounded-xl transition-all duration-300">
                   مشاهده خدمات
                 </Button>
               </Link>
