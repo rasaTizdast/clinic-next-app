@@ -1,5 +1,7 @@
+"use client";
+
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Globe, Send } from "lucide-react";
 import { Container } from "./Container";
 
 const footerLinks = {
@@ -19,27 +21,45 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="relative bg-background border-t border-border/40">
+      {/* Top decorative line */}
+      <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+
       <Container>
-        <div className="py-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="relative py-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
           {/* Brand */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-bold">کلینیک زیبا</h3>
-            <p className="text-sm text-background/70 leading-relaxed">
+          <div className="space-y-6 lg:col-span-1">
+            <Link href="/" className="flex items-center gap-3 group">
+              <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-white font-bold text-lg transition-transform duration-300 group-hover:scale-110">
+                ب
+              </div>
+              <span className="text-2xl font-bold text-foreground tracking-tight">
+                کلینیک <span className="text-primary">باران</span>
+              </span>
+            </Link>
+            <p className="text-base text-foreground/70 leading-relaxed font-light">
               ارائه دهنده خدمات تخصصی زیبایی، پوست و مو با بهترین متخصصان و
               پیشرفته\u200cترین تجهیزات
             </p>
+            <div className="flex items-center gap-4 pt-2">
+              <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all duration-300">
+                <Globe className="h-5 w-5" />
+              </a>
+              <a href="#" className="w-10 h-10 rounded-full bg-muted flex items-center justify-center text-foreground/60 hover:text-primary hover:bg-primary/10 transition-all duration-300">
+                <Send className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Services */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">خدمات</h4>
-            <ul className="space-y-2">
+          <div className="space-y-6">
+            <h4 className="text-sm font-bold tracking-widest text-foreground/80 uppercase">خدمات</h4>
+            <ul className="space-y-4">
               {footerLinks.services.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-background/70 hover:text-primary transition-colors"
+                    className="link-underline-hover text-base text-foreground/70 hover:text-primary transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
@@ -49,14 +69,14 @@ export function Footer() {
           </div>
 
           {/* Company */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">کلینیک</h4>
-            <ul className="space-y-2">
+          <div className="space-y-6">
+            <h4 className="text-sm font-bold tracking-widest text-foreground/80 uppercase">کلینیک</h4>
+            <ul className="space-y-4">
               {footerLinks.company.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-sm text-background/70 hover:text-primary transition-colors"
+                    className="link-underline-hover text-base text-foreground/70 hover:text-primary transition-colors duration-300 font-light"
                   >
                     {link.label}
                   </Link>
@@ -66,23 +86,23 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="space-y-4">
-            <h4 className="text-sm font-semibold">تماس با ما</h4>
-            <ul className="space-y-3">
-              <li className="flex items-start gap-2 text-sm text-background/70">
-                <MapPin className="h-4 w-4 mt-0.5 shrink-0" />
-                <span>تهران، خیابان ولیعصر، نبش کوچه گل</span>
+          <div className="space-y-6">
+            <h4 className="text-sm font-bold tracking-widest text-foreground/80 uppercase">تماس با ما</h4>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3 text-base text-foreground/70 font-light">
+                <MapPin className="h-5 w-5 mt-0.5 shrink-0 text-primary/70" />
+                <span>تهران، خیابان ولیعصر، نبش کوچه گل، پلاک ۱۲</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Phone className="h-4 w-4 shrink-0" />
+              <li className="flex items-center gap-3 text-base text-foreground/70 font-light">
+                <Phone className="h-5 w-5 shrink-0 text-primary/70" />
                 <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Mail className="h-4 w-4 shrink-0" />
-                <span>info@ziba-clinic.ir</span>
+              <li className="flex items-center gap-3 text-base text-foreground/70 font-light">
+                <Mail className="h-5 w-5 shrink-0 text-primary/70" />
+                <span>info@baran-clinic.ir</span>
               </li>
-              <li className="flex items-center gap-2 text-sm text-background/70">
-                <Clock className="h-4 w-4 shrink-0" />
+              <li className="flex items-center gap-3 text-base text-foreground/70 font-light">
+                <Clock className="h-5 w-5 shrink-0 text-primary/70" />
                 <span>شنبه تا پنجشنبه ۹ صبح تا ۸ شب</span>
               </li>
             </ul>
@@ -90,10 +110,14 @@ export function Footer() {
         </div>
 
         {/* Bottom */}
-        <div className="py-6 border-t border-background/10 text-center">
-          <p className="text-xs text-background/50">
-            © ۱۴۰۵ کلینیک زیبا. تمامی حقوق محفوظ است.
+        <div className="relative py-8 border-t border-border/40 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-sm text-foreground/60 font-light">
+            © ۱۴۰۵ کلینیک زیبایی باران. تمامی حقوق محفوظ است.
           </p>
+          <div className="flex items-center gap-6 text-sm text-foreground/60 font-light">
+            <a href="#" className="hover:text-primary transition-colors duration-300">حریم خصوصی</a>
+            <a href="#" className="hover:text-primary transition-colors duration-300">شرایط استفاده</a>
+          </div>
         </div>
       </Container>
     </footer>

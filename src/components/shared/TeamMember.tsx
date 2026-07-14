@@ -1,5 +1,7 @@
-import { Card } from "@/components/ui/Card";
+"use client";
+
 import { TeamMember as TeamMemberType } from "@/lib/types";
+import { cn } from "@/lib/utils";
 
 interface TeamMemberProps {
   member: TeamMemberType;
@@ -7,13 +9,25 @@ interface TeamMemberProps {
 
 export function TeamMember({ member }: TeamMemberProps) {
   return (
-    <Card className="p-6 text-center">
-      <div className="w-24 h-24 mx-auto mb-4 rounded-full bg-muted flex items-center justify-center text-2xl font-bold text-primary">
-        {member.name.charAt(0)}
+    <div className="group relative p-8 rounded-[2rem] bg-surface border border-border/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 text-center">
+      {/* Avatar */}
+      <div className="relative w-28 h-28 mx-auto mb-6">
+        <div className="absolute inset-0 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-colors duration-500" />
+        <div className="relative w-full h-full rounded-full bg-muted border-4 border-surface flex items-center justify-center text-3xl font-black text-primary transition-transform duration-500 group-hover:scale-105">
+          {member.name.charAt(0)}
+        </div>
       </div>
-      <h3 className="text-lg font-semibold text-foreground mb-1">{member.name}</h3>
-      <p className="text-sm text-primary mb-3">{member.role}</p>
-      <p className="text-sm text-foreground/60 leading-relaxed">{member.bio}</p>
-    </Card>
+
+      {/* Info */}
+      <h3 className="text-xl font-bold text-foreground mb-1.5 transition-colors duration-300 group-hover:text-primary">
+        {member.name}
+      </h3>
+      <p className="text-sm font-semibold text-primary mb-4 tracking-wide uppercase">
+        {member.role}
+      </p>
+      <p className="text-[15px] text-foreground/70 leading-relaxed font-light">
+        {member.bio}
+      </p>
+    </div>
   );
 }

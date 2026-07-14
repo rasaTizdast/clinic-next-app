@@ -49,7 +49,9 @@ export function ContactForm() {
   if (status === "success") {
     return (
       <Card className="p-8 text-center">
-        <CheckCircle className="h-16 w-16 text-success mx-auto mb-4" />
+        <div className="animate-success-pop">
+          <CheckCircle className="h-16 w-16 text-success mx-auto mb-4" />
+        </div>
         <h3 className="text-xl font-semibold text-foreground mb-2">
           پیام شما ارسال شد
         </h3>
