@@ -25,16 +25,18 @@ export function ServicesFilter() {
   return (
     <>
       <ScrollReveal delay={100}>
-        <div className="flex items-center justify-center gap-2 mb-10 flex-wrap">
+        <div className="flex items-center justify-center gap-3 mb-16 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat.key}
               onClick={() => setActive(cat.key)}
               className={cn(
-                "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer",
+                "px-6 py-2.5 rounded-full text-[15px] font-semibold cursor-pointer",
+                "transition-all duration-300",
+                "active:scale-[0.97]",
                 active === cat.key
-                  ? "bg-primary text-white shadow-md shadow-primary/20"
-                  : "bg-muted text-foreground/50 hover:text-foreground/70 hover:bg-muted/80"
+                  ? "bg-foreground text-white shadow-lg shadow-foreground/20"
+                  : "bg-muted/50 text-foreground/60 hover:text-foreground hover:bg-muted border border-transparent hover:border-border/50"
               )}
             >
               {cat.label}
@@ -43,17 +45,17 @@ export function ServicesFilter() {
         </div>
       </ScrollReveal>
 
-      <div className="flex flex-col gap-4 max-w-4xl mx-auto">
+      <div className="flex flex-col gap-6 max-w-5xl mx-auto">
         {filtered.map((service, index) => (
-          <ScrollReveal key={service.id} delay={index * 60}>
+          <ScrollReveal key={service.id} delay={index * 80}>
             <ServiceCard service={service} />
           </ScrollReveal>
         ))}
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-16">
-          <p className="text-foreground/40 text-lg">خدمتی یافت نشد</p>
+        <div className="text-center py-24">
+          <p className="text-foreground/60 text-xl font-light">خدمتی یافت نشد</p>
         </div>
       )}
     </>

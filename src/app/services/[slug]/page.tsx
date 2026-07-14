@@ -1,13 +1,14 @@
+"use client";
+
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowRight, Clock, Tag, CheckCircle } from "lucide-react";
 import { getServices, getServiceBySlug } from "@/data";
-import { Container } from "@/components/layout/Container";
-import { Section } from "@/components/layout/Section";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { formatPrice } from "@/lib/utils";
-import type { Metadata } from "next";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { use } from "react";
 
 const categoryLabels: Record<string, string> = {
   skin: "پوست",
@@ -20,25 +21,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
-  if (!service) return { title: "خدمت یافت نشد" };
-  return {
-    title: service.title,
-    description: service.description,
-  };
-}
-
-export async function generateStaticParams() {
-  const services = getServices();
-  return services.map((service) => ({
-    slug: service.slug,
-  }));
-}
-
-export default async function ServiceDetailPage({ params }: PageProps) {
-  const { slug } = await params;
+export default function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = use(params);
   const service = getServiceBySlug(slug);
 
   if (!service) {
@@ -46,60 +30,78 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   }
 
   return (
-    <Section>
-      <Container>
-        <Link
-          href="/services"
-          className="inline-flex items-center gap-2 text-sm text-foreground/60 hover:text-primary mb-8 transition-colors"
-        >
-          <ArrowRight className="h-4 w-4" />
-          بازگشت به لیست خدمات
-        </Link>
-
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          {/* Info */}
-          <div>
-            <div className="flex items-center gap-2 mb-4">
-              <Badge variant="accent">{categoryLabels[service.category]}</Badge>
-            </div>
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-              {service.title}
-            </h1>
-            <p className="text-lg text-foreground/60 mb-6 leading-relaxed">
-              {service.description}
-            </p>
-            <div className="prose prose-lg text-foreground/70 mb-8">
-              <p>{service.longDescription}</p>
-            </div>
-
-            <div className="flex flex-wrap gap-6 mb-8">
-              <div className="flex items-center gap-2">
-                <Tag className="h-5 w-5 text-primary" />
-                <div>
-                  <p className="text-sm text-foreground/50">قیمت</p>
-                  <p className="font-bold text-primary">{formatPrice(service.price)}</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <Clock className="h-5 w-5 text-primary" />
-                <div>
-                  <p className="text-sm text-foreground/50">مدت زمان</p>
-                  <p className="font-bold">{service.duration}</p>
-                </div>
-              </div>
-            </div>
-
-            <Link href="/contact">
-              <Button size="lg">رزرو وقت</Button>
+    <>
+      <section className="relative py-32 sm:py-40 bg-foreground text-white overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,140,99,0.15),transparent_60%)] pointer-events-none" />
+        
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <ScrollReveal>
+            <Link
+              href="/services"
+              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-primary mb-10 transition-colors duration-300"
+            >
+              <ArrowRight className="h-4 w-4" />
+              بازگشت به لیست خدمات
             </Link>
-          </div>
 
-          {/* Image placeholder */}
-          <div className="bg-muted rounded-2xl aspect-square flex items-center justify-center">
-            <p className="text-foreground/40">تصویر خدمت</p>
-          </div>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+              {/* Info */}
+              <div>
+                <Badge variant="accent" className="mb-6 px-4 py-1.5 text-sm">
+                  {categoryLabels[service.category]}
+                </Badge>
+                
+                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
+                  {service.title}
+                </h1>
+                
+                <p className="text-xl text-white/80 mb-8 leading-relaxed font-light">
+                  {service.description}
+                </p>
+                
+                <div className="text-lg text-white/70 mb-10 leading-relaxed font-light">
+                  <p>{service.longDescription}</p>
+                </div>
+
+                <div className="flex flex-wrap gap-8 mb-10">
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-primary/20 rounded-xl">
+                      <Tag className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/70 mb-0.5">قیمت</p>
+                      <p className="text-xl font-bold text-primary">{formatPrice(service.price)} <span className="text-sm font-normal text-white/60">تومان</span></p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-4">
+                    <div className="p-3 bg-white/10 rounded-xl">
+                      <Clock className="h-6 w-6 text-white/70" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-white/70 mb-0.5">مدت زمان</p>
+                      <p className="text-xl font-bold text-white">{service.duration}</p>
+                    </div>
+                  </div>
+                </div>
+
+                <Link href="/contact">
+                  <Button size="lg" className="bg-primary hover:bg-primary-light text-white px-8 py-4 text-lg shadow-lg shadow-primary/30 rounded-xl">
+                    رزرو وقت
+                  </Button>
+                </Link>
+              </div>
+
+              {/* Image placeholder */}
+              <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden shadow-2xl bg-gradient-to-br from-primary/20 to-primary/5">
+                <div className="absolute inset-0 texture-grain opacity-[0.03]" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="w-32 h-32 rounded-full bg-primary/20 animate-pulse blur-xl" />
+                </div>
+              </div>
+            </div>
+          </ScrollReveal>
         </div>
-      </Container>
-    </Section>
+      </section>
+    </>
   );
 }
