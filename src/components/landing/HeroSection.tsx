@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/Button";
 
 export function HeroSection() {
   return (
-    <section className="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden bg-background">
+    <section className="relative h-screen min-h-[600px] max-h-[900px] flex items-center overflow-hidden bg-background pt-20">
       {/* Decorative subtle grain */}
       <div className="absolute inset-0 opacity-[0.03] pointer-events-none texture-grain" />
 
@@ -73,7 +73,7 @@ export function HeroSection() {
       </div>
 
       {/* Scroll Indicator - Visual chevron */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hero-stagger-5">
+      <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 hero-stagger-5">
         <div className="flex flex-col items-center gap-1 text-foreground/30 animate-bounce">
           <ChevronDown className="h-6 w-6" />
         </div>
