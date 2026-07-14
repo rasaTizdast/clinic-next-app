@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -17,12 +17,33 @@ const navLinks = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const menuRef = useRef<HTMLDivElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
+
+  // Close menu when clicking outside
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    const handleClickOutside = (e: MouseEvent) => {
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(e.target as Node) &&
+        buttonRef.current &&
+        !buttonRef.current.contains(e.target as Node)
+      ) {
+        setMobileMenuOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [mobileMenuOpen]);
 
   return (
     <header
@@ -68,6 +89,7 @@ export function Header() {
               <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
             </a>
             <button
+              ref={buttonRef}
               type="button"
               className="lg:hidden p-2 text-foreground/70 hover:text-primary cursor-pointer transition-colors duration-300 active:scale-95"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -83,17 +105,18 @@ export function Header() {
         </div>
       </div>
 
-      {/* Mobile Nav */}
+      {/* Mobile Nav - Absolute overlay */}
       <div
+        ref={menuRef}
         className={cn(
-          "lg:hidden overflow-hidden transition-all duration-500",
+          "lg:hidden absolute top-full left-0 right-0 transition-all duration-300",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
           mobileMenuOpen
-            ? "opacity-100 translate-y-0 max-h-96 border-b border-border/40"
-            : "opacity-0 -translate-y-4 pointer-events-none max-h-0 border-b-transparent"
+            ? "opacity-100 translate-y-0 visible"
+            : "opacity-0 -translate-y-2 pointer-events-none invisible"
         )}
       >
-        <nav className="px-4 py-6 space-y-1 bg-background/95 backdrop-blur-xl border-t border-border/40">
+        <nav className="mx-4 mb-4 p-4 space-y-1 bg-background/95 backdrop-blur-2xl rounded-2xl shadow-xl shadow-foreground/10 border border-border/50">
           {navLinks.map((link, i) => (
             <Link
               key={link.href}
@@ -107,7 +130,7 @@ export function Header() {
               {link.label}
             </Link>
           ))}
-          <div className="pt-4 px-4 border-t border-border/40">
+          <div className="pt-3 px-4 border-t border-border/40">
             <a
               href="tel:+989121234567"
               className="flex items-center gap-2 text-sm font-semibold text-primary"
