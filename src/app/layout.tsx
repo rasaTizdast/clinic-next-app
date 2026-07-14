@@ -13,12 +13,12 @@ const vazirmatn = Vazirmatn({
 
 export const metadata: Metadata = {
   title: {
-    default: "کلینیک زیبا | زیبایی و جوانی",
-    template: "%s | کلینیک زیبا",
+    default: "کلینیک زیبایی باران | زیبایی و جوانی",
+    template: "%s | کلینیک زیبایی باران",
   },
   description:
-    "کلینیک زیبا ارائه دهنده خدمات تخصصی زیبایی، پوست و مو با بهترین متخصصان",
-  keywords: ["کلینیک زیبایی", "جوانسازی پوست", "لیزر موهای زائد", "بوتاکس"],
+    "کلینیک زیبایی باران ارائه دهنده خدمات تخصصی زیبایی، پوست و مو با بهترین متخصصان",
+  keywords: ["کلینیک زیبایی", "جوانسازی پوست", "لیزر موهای زائد", "بوتاکس", "کلینیک باران"],
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="fa" dir="rtl" className={`${vazirmatn.variable} h-full`}>
-      <body className="min-h-full flex flex-col font-sans antialiased">
+      <body className="min-h-full flex flex-col font-sans antialiased selection:bg-primary selection:text-white">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -1,8 +1,5 @@
 "use client";
 
-import { Container } from "@/components/layout/Container";
-import { ErrorState } from "@/components/ui/ErrorState";
-
 export default function Error({
   error,
   reset,
@@ -11,13 +8,24 @@ export default function Error({
   reset: () => void;
 }) {
   return (
-    <Container>
-      <div className="min-h-[60vh] flex items-center justify-center">
-        <ErrorState
-          message={error.message || "خطای غیرمنتظره‌ای رخ داد. لطفاً دوباره تلاش کنید."}
-          onRetry={reset}
-        />
+    <div className="min-h-[80vh] flex items-center justify-center bg-background px-4">
+      <div className="text-center max-w-md">
+        <div className="w-20 h-20 rounded-full bg-destructive/10 flex items-center justify-center mx-auto mb-8">
+          <span className="text-3xl">⚠️</span>
+        </div>
+        <h2 className="text-2xl font-bold text-foreground mb-4">
+          مشکلی پیش آمد
+        </h2>
+        <p className="text-foreground/60 mb-8 leading-relaxed font-light">
+          متأسفانه در بارگذاری این صفحه مشکلی پیش آمده است. لطفاً دوباره تلاش کنید.
+        </p>
+        <button
+          onClick={reset}
+          className="px-8 py-3 bg-foreground text-background rounded-xl font-bold hover:bg-foreground/90 transition-colors duration-300"
+        >
+          تلاش مجدد
+        </button>
       </div>
-    </Container>
+    </div>
   );
 }
