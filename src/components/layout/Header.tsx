@@ -16,15 +16,8 @@ const navLinks = [
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
   const buttonRef = useRef<HTMLButtonElement>(null);
-
-  useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20);
-    window.addEventListener("scroll", onScroll, { passive: true });
-    return () => window.removeEventListener("scroll", onScroll);
-  }, []);
 
   // Close menu when clicking outside
   useEffect(() => {
@@ -46,14 +39,21 @@ export function Header() {
   }, [mobileMenuOpen]);
 
   return (
-    <header
-      className={cn(
-        "sticky top-0 z-50 transition-all duration-500",
-        scrolled
-          ? "bg-background/90 backdrop-blur-xl backdrop-saturate-150 border-b border-border/40 shadow-sm"
-          : "bg-transparent border-b border-transparent",
-      )}
-    >
+    <>
+      {/* Backdrop overlay - blurs page content */}
+      <div
+        className={cn(
+          "lg:hidden fixed inset-0 bg-foreground/20 backdrop-blur-sm transition-opacity duration-300",
+          mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+        )}
+        style={{ zIndex: 45 }}
+        onClick={() => setMobileMenuOpen(false)}
+      />
+
+      <header
+        className="sticky top-0 bg-background/90 backdrop-blur-xl backdrop-saturate-150 border-b border-border/40 transition-all duration-500"
+        style={{ zIndex: 50 }}
+      >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="flex h-20 items-center justify-between">
           {/* Logo */}
@@ -105,16 +105,6 @@ export function Header() {
         </div>
       </div>
 
-      {/* Backdrop overlay - blurs page below header */}
-      <div
-        className={cn(
-          "lg:hidden bg-foreground/20 backdrop-blur-sm transition-opacity duration-300",
-          mobileMenuOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        )}
-        style={{ position: "fixed", top: "80px", left: 0, right: 0, bottom: 0, zIndex: 40 }}
-        onClick={() => setMobileMenuOpen(false)}
-      />
-
       {/* Mobile Nav - Absolute overlay */}
       <div
         ref={menuRef}
@@ -152,5 +142,6 @@ export function Header() {
         </nav>
       </div>
     </header>
+    </>
   );
 }
