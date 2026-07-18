@@ -24,29 +24,29 @@ export function ScrollReveal({
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
-          el.style.transitionDelay = `${delay}ms`;
           setIsVisible(true);
           observer.unobserve(entry.target);
         }
       },
-      { threshold: 0.1, rootMargin: "0px 0px -60px 0px" }
+      { threshold: 0.1, rootMargin: "0px 0px -40px 0px" }
     );
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [delay]);
+  }, []);
 
   return (
     <div
       ref={ref}
       className={cn(
-        "transition-[opacity,transform,filter] duration-1000",
+        "transition-[opacity,transform] duration-[420ms]",
         "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
         isVisible
-          ? "opacity-100 translate-y-0 blur-0"
-          : "opacity-0 translate-y-8 blur-[4px]",
+          ? "opacity-100 translate-y-0"
+          : "opacity-0 translate-y-6",
         className
       )}
+      style={{ transitionDelay: `${delay}ms` }}
     >
       {children}
     </div>

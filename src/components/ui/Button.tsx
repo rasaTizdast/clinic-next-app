@@ -17,8 +17,8 @@ export function Button({
     primary:
       "bg-primary text-white hover:bg-primary-light shadow-md hover:shadow-lg",
     secondary:
-      "bg-transparent text-primary border-2 border-primary hover:bg-primary/10",
-    ghost: "bg-transparent text-foreground/70 hover:text-primary hover:bg-muted",
+      "bg-transparent text-foreground border border-border hover:border-primary hover:text-primary",
+    ghost: "bg-transparent text-foreground/60 hover:text-primary hover:bg-muted",
   };
 
   const sizes = {
@@ -30,10 +30,11 @@ export function Button({
   return (
     <button
       className={cn(
-        "inline-flex items-center justify-center gap-2 font-medium rounded-lg cursor-pointer",
+        "inline-flex items-center justify-center gap-2 font-medium rounded-xl cursor-pointer",
         "transition-[transform,box-shadow,background-color,border-color,color] duration-150",
-        "focus-ring disabled:opacity-50 disabled:cursor-not-allowed",
-        "active:scale-[0.97]",
+        "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary",
+        "disabled:opacity-50 disabled:cursor-not-allowed",
+        "hover:-translate-y-px active:translate-y-0",
         variants[variant],
         sizes[size],
         className
