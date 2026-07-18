@@ -1,49 +1,76 @@
 "use client";
 
-import { Suspense } from "react";
+import { getServices, getServicesByCategory } from "@/data";
+import { ServiceCard } from "@/components/shared/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { Skeleton } from "@/components/ui/Skeleton";
-import { Stethoscope } from "lucide-react";
-import { ServicesFilter } from "./ServicesFilter";
+import { useState } from "react";
+import { cn } from "@/lib/utils";
+
+const categories = [
+  { key: "all", label: "همه" },
+  { key: "face", label: "صورت" },
+  { key: "skin", label: "پوست" },
+  { key: "hair", label: "مو" },
+  { key: "body", label: "بدن" },
+] as const;
 
 export function ServicesPageClient() {
+  const [activeCategory, setActiveCategory] = useState<string>("all");
+  const services = activeCategory === "all"
+    ? getServices()
+    : getServicesByCategory(activeCategory as "face" | "skin" | "hair" | "body");
+
   return (
     <>
-      <section className="relative py-32 sm:py-40 bg-foreground text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,140,99,0.15),transparent_60%)] pointer-events-none" />
-        
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
+      {/* Hero */}
+      <section className="relative py-24 sm:py-32 lg:py-40 bg-foreground text-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 text-center">
           <ScrollReveal>
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/10 text-white px-5 py-2 rounded-full text-sm font-medium mb-8">
-              <Stethoscope className="h-4 w-4 text-primary" />
-              <span>خدمات تخصصی</span>
-            </div>
-            <h1 
-              className="text-5xl sm:text-6xl lg:text-7xl font-black mb-6 leading-tight"
+            <div className="eyebrow text-white/50 mb-4">خدمات ما</div>
+            <h1
+              className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4 leading-tight"
               style={{ letterSpacing: "-0.02em" }}
             >
-              خدمات <span className="text-primary">پیشرفته</span> ما
+              خدمات <span className="text-primary">تخصصی</span> زیبایی
             </h1>
-            <p className="text-xl text-white/60 max-w-2xl mx-auto font-light">
-              مجموعه‌ای متنوع از خدمات تخصصی زیبایی، پوست و مو با بهترین کیفیت
+            <p className="text-lg text-white/40 max-w-2xl mx-auto font-light">
+              با بهترین متخصصان و پیشرفته‌ترین تجهیزات
             </p>
           </ScrollReveal>
         </div>
       </section>
 
-      <section className="py-20 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Suspense
-            fallback={
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                  <Skeleton key={i} className="h-80 rounded-[2rem]" />
-                ))}
-              </div>
-            }
-          >
-            <ServicesFilter />
-          </Suspense>
+      {/* Filter + Grid */}
+      <section className="py-20 sm:py-28">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
+          {/* Category filter */}
+          <ScrollReveal>
+            <div className="flex flex-wrap gap-2 justify-center mb-14">
+              {categories.map((cat) => (
+                <button
+                  key={cat.key}
+                  onClick={() => setActiveCategory(cat.key)}
+                  className={cn(
+                    "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer",
+                    activeCategory === cat.key
+                      ? "bg-primary text-white"
+                      : "bg-muted text-foreground/50 hover:text-primary hover:bg-primary/10"
+                  )}
+                >
+                  {cat.label}
+                </button>
+              ))}
+            </div>
+          </ScrollReveal>
+
+          {/* Grid */}
+          <div className="flex flex-col gap-5 max-w-5xl mx-auto">
+            {services.map((service, index) => (
+              <ScrollReveal key={service.id} delay={index * 60}>
+                <ServiceCard service={service} />
+              </ScrollReveal>
+            ))}
+          </div>
         </div>
       </section>
     </>

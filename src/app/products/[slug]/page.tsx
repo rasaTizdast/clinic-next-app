@@ -3,10 +3,10 @@
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
-import { getProductBySlug, getProducts } from "@/data";
+import { getProductBySlug } from "@/data";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { use } from "react";
 
 interface ProductPageProps {
@@ -23,52 +23,61 @@ export default function ProductPage({ params }: ProductPageProps) {
 
   return (
     <>
-      <section className="relative py-32 sm:py-40 bg-foreground text-white overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(184,140,99,0.15),transparent_60%)] pointer-events-none" />
-        
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Hero — Split diptych */}
+      <section className="relative py-24 sm:py-32 lg:py-40 bg-foreground text-white overflow-hidden">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-sm text-white/70 hover:text-primary mb-10 transition-colors duration-300"
+              className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-primary mb-10 transition-colors duration-200"
             >
               <ArrowRight className="h-4 w-4" />
               بازگشت به محصولات
             </Link>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-              <div className="relative aspect-square rounded-[2rem] overflow-hidden shadow-2xl">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+              {/* Image */}
+              <div className="relative aspect-square rounded-2xl overflow-hidden">
                 <Image
                   src={product.image}
                   alt={product.title}
                   fill
-                  className="object-cover transition-transform duration-1000 hover:scale-105"
+                  className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
 
+              {/* Info */}
               <div>
-                <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight" style={{ letterSpacing: "-0.02em" }}>
+                <h1
+                  className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-[1.1]"
+                  style={{ letterSpacing: "-0.02em" }}
+                >
                   {product.title}
                 </h1>
-                
-                <p className="text-xl text-white/80 mb-8 leading-relaxed font-light">
+
+                <p className="text-lg text-white/40 mb-6 leading-relaxed font-light max-w-lg">
                   {product.description}
                 </p>
-                
+
                 {product.price && (
-                  <p className="text-3xl font-black text-primary mb-10">
-                    {product.price.toLocaleString("fa-IR")} <span className="text-base font-medium text-white/60">تومان</span>
+                  <p className="text-2xl font-black text-primary mb-6">
+                    {product.price.toLocaleString("fa-IR")}
+                    <span className="text-sm font-medium text-white/30 mr-1">تومان</span>
                   </p>
                 )}
-                
-                <div className="text-lg text-white/70 mb-10 leading-relaxed font-light">
-                  <p>{product.longDescription}</p>
-                </div>
 
-                <Button size="lg" className="bg-primary hover:bg-primary-light text-white px-8 py-4 text-lg shadow-lg shadow-primary/30 rounded-xl">
+                <p className="text-base text-white/50 mb-10 leading-relaxed font-light">
+                  {product.longDescription}
+                </p>
+
+                <Button
+                  size="lg"
+                  className="bg-primary hover:bg-primary-light text-white px-8 py-4 shadow-lg shadow-primary/20 rounded-xl btn-premium"
+                >
                   افزودن به سبد خرید
+                  <ArrowLeft className="h-5 w-5" />
                 </Button>
               </div>
             </div>
