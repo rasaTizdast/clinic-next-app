@@ -18,12 +18,12 @@ export function Section({
 }: SectionProps) {
   const bgClasses = {
     default: "",
-    muted: "bg-muted",
+    muted: "bg-muted/50",
     surface: "bg-surface",
   };
 
   return (
-    <Component className={cn("py-16 sm:py-20 lg:py-24", bgClasses[background], className)}>
+    <Component className={cn("py-20 sm:py-24 lg:py-28", bgClasses[background], className)}>
       <Container className={containerClassName}>{children}</Container>
     </Component>
   );
