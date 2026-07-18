@@ -35,25 +35,25 @@ const categoryConfig: Record<
 > = {
   skin: {
     label: "پوست",
-    iconBg: "bg-gradient-to-br from-accent/15 to-accent/5",
-    iconColor: "text-accent",
+    iconBg: "bg-primary/10",
+    iconColor: "text-primary",
     badgeVariant: "accent",
   },
   hair: {
     label: "مو",
-    iconBg: "bg-gradient-to-br from-primary/15 to-primary/5",
+    iconBg: "bg-primary/10",
     iconColor: "text-primary",
     badgeVariant: "default",
   },
   body: {
     label: "بدن",
-    iconBg: "bg-gradient-to-br from-success/15 to-success/5",
+    iconBg: "bg-success/10",
     iconColor: "text-success",
     badgeVariant: "success",
   },
   face: {
     label: "صورت",
-    iconBg: "bg-gradient-to-br from-primary/20 to-primary/8",
+    iconBg: "bg-primary/10",
     iconColor: "text-primary",
     badgeVariant: "default",
   },
@@ -67,49 +67,48 @@ interface ServiceCardProps {
 export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
   const Icon = iconMap[service.icon] || Sparkles;
   const config = categoryConfig[service.category];
-
   const isDark = variant === "dark";
 
   return (
     <Link href={`/services/${service.slug}`} className="group block">
-      <div 
+      <div
         className={cn(
-          "flex flex-col sm:flex-row items-stretch rounded-3xl overflow-hidden transition-all duration-500",
+          "flex flex-col sm:flex-row items-stretch rounded-2xl overflow-hidden transition-all duration-300",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
-          isDark 
-            ? "bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 shadow-xl" 
-            : "bg-surface border border-border/60 hover:shadow-xl hover:border-primary/20",
-          "hover:-translate-y-1"
+          isDark
+            ? "bg-white/[0.03] hover:bg-white/[0.06] border border-white/[0.06] hover:border-white/10"
+            : "bg-surface border border-border/40 hover:border-primary/20 hover:shadow-lg",
+          "hover:-translate-y-0.5"
         )}
       >
-        {/* Image placeholder */}
+        {/* Icon area */}
         <div className={cn(
-          "relative sm:w-64 lg:w-72 flex-shrink-0 flex items-center justify-center min-h-[180px] sm:min-h-0",
-          isDark ? "bg-white/5" : "bg-gradient-to-br from-muted to-muted/50"
+          "relative sm:w-56 lg:w-64 flex-shrink-0 flex items-center justify-center min-h-[140px] sm:min-h-0",
+          isDark ? "bg-white/[0.02]" : "bg-muted/50"
         )}>
           <div className={cn(
-            "p-6 rounded-2xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3",
+            "p-5 rounded-xl transition-transform duration-300 group-hover:scale-105",
             config.iconBg
           )}>
-            <Icon className={cn("h-12 w-12", config.iconColor)} />
+            <Icon className={cn("h-10 w-10", config.iconColor)} />
           </div>
-          <div className="absolute top-4 right-4">
+          <div className="absolute top-3 right-3">
             <Badge variant={config.badgeVariant}>{config.label}</Badge>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-6 sm:p-8 flex flex-col justify-between">
+        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <h3 className={cn(
-              "text-xl font-bold mb-2 transition-colors duration-300",
+              "text-lg font-bold mb-1.5 transition-colors duration-200",
               isDark ? "text-white group-hover:text-primary" : "text-foreground group-hover:text-primary"
             )}>
               {service.title}
             </h3>
             <p className={cn(
-              "text-base leading-relaxed line-clamp-2 mb-6",
-              isDark ? "text-white/70" : "text-foreground/70"
+              "text-sm leading-relaxed line-clamp-2 mb-5",
+              isDark ? "text-white/40" : "text-foreground/40"
             )}>
               {service.description}
             </p>
@@ -117,22 +116,22 @@ export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
 
           <div className={cn(
             "flex items-center justify-between pt-4 border-t",
-            isDark ? "border-white/10" : "border-border/50"
+            isDark ? "border-white/[0.06]" : "border-border/30"
           )}>
-            <div className="flex items-center gap-4">
-              <span className="text-xl font-black text-primary">
+            <div className="flex items-center gap-3">
+              <span className="text-lg font-black text-primary">
                 {formatPrice(service.price)}
               </span>
-              <span className={cn("text-sm", isDark ? "text-white/50" : "text-foreground/50")}>تومان</span>
-              <span className={cn("hidden sm:inline", isDark ? "text-white/30" : "text-foreground/30")}>|</span>
-              <div className={cn("hidden sm:flex items-center gap-1.5", isDark ? "text-white/60" : "text-foreground/60")}>
-                <Clock className="h-4 w-4" />
-                <span className="text-sm">{service.duration}</span>
+              <span className={cn("text-xs", isDark ? "text-white/30" : "text-foreground/30")}>تومان</span>
+              <span className={cn("hidden sm:inline", isDark ? "text-white/15" : "text-foreground/15")}>|</span>
+              <div className={cn("hidden sm:flex items-center gap-1", isDark ? "text-white/30" : "text-foreground/30")}>
+                <Clock className="h-3.5 w-3.5" />
+                <span className="text-xs">{service.duration}</span>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-sm font-semibold text-primary/80 group-hover:text-primary transition-colors duration-300">
+            <div className="flex items-center gap-2 text-sm font-semibold text-primary/70 group-hover:text-primary transition-colors duration-200">
               <span>جزئیات</span>
-              <ArrowLeft className="h-5 w-5 transition-transform duration-300 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-2" />
+              <ArrowLeft className="h-4 w-4 transition-transform duration-200 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)] group-hover:-translate-x-1" />
             </div>
           </div>
         </div>

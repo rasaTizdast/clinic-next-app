@@ -1,7 +1,6 @@
 "use client";
 
 import { TeamMember as TeamMemberType } from "@/lib/types";
-import { cn } from "@/lib/utils";
 
 interface TeamMemberProps {
   member: TeamMemberType;
@@ -9,25 +8,28 @@ interface TeamMemberProps {
 
 export function TeamMember({ member }: TeamMemberProps) {
   return (
-    <div className="group relative p-8 rounded-[2rem] bg-surface border border-border/40 shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 hover:border-primary/20 text-center">
+    <div className="rounded-2xl overflow-hidden bg-surface border border-border/30 hover:border-primary/15 hover:shadow-md transition-all duration-300 group">
       {/* Avatar */}
-      <div className="relative w-28 h-28 mx-auto mb-6">
-        <div className="absolute inset-0 rounded-full bg-primary/10 blur-xl group-hover:bg-primary/20 transition-colors duration-500" />
-        <div className="relative w-full h-full rounded-full bg-muted border-4 border-surface flex items-center justify-center text-3xl font-black text-primary transition-transform duration-500 group-hover:scale-105">
-          {member.name.charAt(0)}
+      <div className="aspect-[3/4] bg-muted/50 overflow-hidden">
+        <div className="w-full h-full bg-gradient-to-br from-primary/5 to-primary/[0.02] flex items-center justify-center">
+          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
+            {member.name.charAt(0)}
+          </div>
         </div>
       </div>
 
       {/* Info */}
-      <h3 className="text-xl font-bold text-foreground mb-1.5 transition-colors duration-300 group-hover:text-primary">
-        {member.name}
-      </h3>
-      <p className="text-sm font-semibold text-primary mb-4 tracking-wide uppercase">
-        {member.role}
-      </p>
-      <p className="text-[15px] text-foreground/70 leading-relaxed font-light">
-        {member.bio}
-      </p>
+      <div className="p-5">
+        <h3 className="text-base font-bold text-foreground mb-1">
+          {member.name}
+        </h3>
+        <p className="text-sm font-semibold text-primary mb-2">
+          {member.role}
+        </p>
+        <p className="text-sm text-foreground/40 leading-relaxed font-light">
+          {member.bio}
+        </p>
+      </div>
     </div>
   );
 }
