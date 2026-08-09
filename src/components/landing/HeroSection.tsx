@@ -1,113 +1,91 @@
 "use client";
 
-import { ArrowLeft, ChevronDown, Star, Users, Award, Clock } from "lucide-react";
 import Link from "next/link";
-import { Button } from "@/components/ui/Button";
-
-const stats = [
-  { icon: Users, value: "+۱۰,۰۰۰", label: "مراجع راضی" },
-  { icon: Star, value: "۴.۹", label: "امتیاز" },
-  { icon: Award, value: "+۱۰", label: "سال تجربه" },
-  { icon: Clock, value: "۲۴/۷", label: "پشتیبانی" },
-];
+import { Star } from "lucide-react";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex items-center overflow-hidden bg-background">
-      {/* Decorative gradient orbs */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-ambient-drift pointer-events-none" />
-      <div className="absolute bottom-20 right-10 w-96 h-96 bg-primary/3 rounded-full blur-3xl animate-ambient-drift pointer-events-none" style={{ animationDelay: "-8s" }} />
+    <section className="sanctuary-hero relative">
+      {/* Background image with Ken Burns effect */}
+      <div className="absolute inset-0 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1560750588-73207b1ef5b8?w=1600&h=900&fit=crop"
+          alt=""
+          className="sanctuary-bg-img w-full h-full object-cover"
+        />
+        {/* Warm rose-gold gradient overlay */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[oklch(10%_0.015_50_/_92%)] via-[oklch(10%_0.01_50_/_65%)] to-[oklch(10%_0.01_50_/_30%)]" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[oklch(62%_0.14_55_/_8%)] to-transparent" />
+      </div>
 
-      <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 py-20 lg:py-0 w-full">
-        {/* H2 Split Diptych — text right, image left (RTL natural) */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Text column — RTL start (right) */}
-          <div className="order-1 lg:order-1">
-            <div className="hero-stagger-1 eyebrow mb-6 flex items-center gap-2">
-              <span className="inline-block w-8 h-px bg-primary" />
-              کلینیک تخصصی زیبایی باران
-            </div>
+      {/* Soft ambient light orbs */}
+      <div className="absolute top-1/3 right-[10%] w-[32rem] h-[32rem] bg-[oklch(62%_0.14_55_/_7%)] rounded-full blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 left-[5%] w-[24rem] h-[24rem] bg-[oklch(72%_0.12_55_/_4%)] rounded-full blur-[100px] pointer-events-none" />
 
-            <h1
-              className="hero-stagger-2 font-black text-foreground mb-6 leading-[1.1] tracking-tight"
-              style={{
-                fontSize: "var(--text-display)",
-                letterSpacing: "-0.02em",
-              }}
-            >
-              زیبایی طبیعی،
-              <br />
-              <span className="text-primary">اعتماد به نفس</span>{" "}
-              واقعی
-            </h1>
+      {/* Content — vertically centered */}
+      <div className="relative z-10 flex items-center min-h-dvh">
+        <div className="mx-auto w-full max-w-7xl px-5 sm:px-8 lg:px-12 pt-24 pb-16 sm:pb-20">
+          <div className="max-w-[640px]">
+            {/* Golden accent line */}
+            <div className="sanctuary-accent-line" />
 
-            <p className="hero-stagger-3 text-lg sm:text-xl text-foreground/50 mb-10 max-w-lg leading-relaxed font-light">
-              در کلینیک زیبایی باران، با بهترین متخصصان و پیشرفته‌ترین تجهیزات،
-              زیبایی طبیعی خود را کشف کنید.
+            {/* Eyebrow */}
+            <p className="sanctuary-eyebrow">
+              کلینیک زیبایی باران
             </p>
 
-            <div className="hero-stagger-4 flex flex-col sm:flex-row gap-4">
-              <Link href="/contact">
-                <Button
-                  size="lg"
-                  className="gap-2 bg-primary hover:bg-primary-light text-white shadow-lg shadow-primary/20 btn-premium rounded-xl"
-                >
-                  رزرو مشاوره رایگان
-                  <ArrowLeft className="h-5 w-5" />
-                </Button>
-              </Link>
-              <Link href="/services">
-                <Button
-                  variant="secondary"
-                  size="lg"
-                  className="rounded-xl"
-                >
-                  مشاهده خدمات
-                </Button>
+            {/* Main headline */}
+            <h1 className="sanctuary-heading">
+              زیبایی طبیعی،
+              <br />
+              <span className="sanctuary-heading-accent">در آغوش تخصص</span>
+            </h1>
+
+            {/* Subheading */}
+            <p className="sanctuary-subheading">
+              با بیش از یک دهه تجربه و بهره‌گیری از پیشرفته‌ترین تجهیزات روز دنیا،
+              زیبایی منحصربه‌فرد شما را شکوفا می‌کنیم.
+            </p>
+
+            {/* CTA row */}
+            <div className="sanctuary-cta-row">
+              <Link
+                href="/contact"
+                className="sanctuary-cta"
+              >
+                رزرو مشاوره رایگان
               </Link>
             </div>
-          </div>
 
-          {/* Image column — RTL end (left) */}
-          <div className="order-2 lg:order-2 hero-stagger-3">
-            <div className="relative rounded-2xl overflow-hidden bg-secondary aspect-[4/3]">
-              <img
-                src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&h=600&fit=crop"
-                alt="کلینیک زیبایی باران"
-                className="w-full h-full object-cover"
-                loading="eager"
-              />
-              {/* Subtle warm overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-foreground/10 to-transparent" />
-              {/* Floating accent dot */}
-              <div className="absolute bottom-6 left-6 w-3 h-3 bg-primary rounded-full animate-pulse" />
-            </div>
-          </div>
-        </div>
-
-        {/* Stats bar */}
-        <div className="hero-stagger-5 mt-16 lg:mt-20">
-          <div className="flex flex-wrap justify-center lg:justify-start gap-8 lg:gap-12">
-            {stats.map((stat) => (
-              <div key={stat.label} className="flex items-center gap-3 group">
-                <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center transition-transform duration-300 group-hover:scale-110">
-                  <stat.icon className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <div className="text-lg font-bold text-foreground">{stat.value}</div>
-                  <div className="text-xs text-foreground/40">{stat.label}</div>
-                </div>
+            {/* Trust bar */}
+            <div className="sanctuary-trust-bar">
+              <div className="sanctuary-trust-item">
+                <span className="sanctuary-trust-number">۱۵+</span>
+                <span className="sanctuary-trust-label">متخصص حرفه‌ای</span>
               </div>
-            ))}
+              <div className="sanctuary-trust-divider" />
+              <div className="sanctuary-trust-item">
+                <span className="sanctuary-trust-number">۵۰۰۰+</span>
+                <span className="sanctuary-trust-label">مراجع راضی</span>
+              </div>
+              <div className="sanctuary-trust-divider" />
+              <div className="sanctuary-trust-item">
+                <div className="flex items-center gap-1">
+                  <Star className="h-4 w-4 fill-amber-400 text-amber-400 -ml-0.5" />
+                  <span className="sanctuary-trust-number">۴.۹</span>
+                </div>
+                <span className="sanctuary-trust-label">امتیاز مراجعین</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 hero-stagger-5">
-        <div className="flex flex-col items-center gap-1 text-foreground/20 animate-bounce">
-          <ChevronDown className="h-5 w-5" />
-        </div>
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-10 flex flex-col items-center gap-2">
+        <span className="text-[0.6rem] font-medium text-white/30 tracking-[0.15em] uppercase">
+        </span>
+        <div className="w-px h-8 bg-gradient-to-b from-white/30 to-transparent" />
       </div>
     </section>
   );
