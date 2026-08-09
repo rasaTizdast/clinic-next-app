@@ -15,8 +15,8 @@ export function CTASection() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 relative">
         <ScrollReveal>
           <div className="text-center max-w-3xl mx-auto">
-            <div className="inline-flex items-center gap-2 bg-white/5 backdrop-blur-sm border border-white/10 text-white/70 px-4 py-2 rounded-full text-xs font-semibold mb-8">
-              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse"></span>
+            <div className="eyebrow text-white/50 mb-6 flex items-center justify-center gap-2">
+              <span className="w-1.5 h-1.5 bg-primary rounded-full animate-pulse" />
               همین الان رزرو کنید
             </div>
 

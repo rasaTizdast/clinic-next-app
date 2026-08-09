@@ -18,7 +18,7 @@ export function ServicesPreview() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 relative">
         <ScrollReveal>
           <div className="text-center mb-16 lg:mb-20">
-            <div className="inline-flex items-center gap-2 bg-white/5 border border-white/10 text-white/70 px-4 py-2 rounded-full text-xs font-semibold mb-6">
+            <div className="eyebrow text-white/50 mb-4 flex items-center justify-center gap-2">
               <Sparkles className="h-3.5 w-3.5 text-primary" />
               <span>تخصص ما</span>
             </div>
