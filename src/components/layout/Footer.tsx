@@ -1,8 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
-import { Container } from "./Container";
+import { MapPin, Phone, Clock } from "lucide-react";
 
 const footerLinks = {
   services: [
@@ -22,107 +21,93 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="relative bg-foreground text-background">
-      <Container>
-        {/* Ft5 Statement — large closing sentence */}
-        <div className="py-20 lg:py-28">
+      {/* Ft6 Letter Close — intimate, personal signoff */}
+      <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-20 lg:py-28">
+        {/* Large closing statement */}
+        <p
+          className="text-2xl sm:text-3xl lg:text-4xl font-light leading-[1.4] tracking-tight max-w-2xl mb-12"
+          style={{ letterSpacing: "-0.01em" }}
+        >
+          زیبایی حق هر انسانی است.
+          <br />
+          <span className="text-primary font-bold">ما اینجاییم</span> تا کمکتان
+          کنیم.
+        </p>
+
+        {/* Letter signoff */}
+        <div className="mb-12">
           <p
-            className="text-3xl sm:text-4xl lg:text-5xl font-black leading-[1.15] tracking-tight max-w-3xl"
-            style={{ letterSpacing: "-0.02em" }}
+            className="text-lg font-light text-white/60"
+            style={{ fontStyle: "italic" }}
           >
-            زیبایی حق هر انسانی است.
-            <br />
-            <span className="text-primary">ما اینجاییم</span> تا کمکتان کنیم.
+            با عشق،
+          </p>
+          <p className="text-xl font-bold text-white mt-1">
+            — کلینیک زیبایی باران
           </p>
         </div>
 
-        {/* Meta row — wordmark, links, contact, copyright */}
-        <div className="py-8 border-t border-white/10">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-8">
-            {/* Brand */}
-            <div className="space-y-4">
-              <Link href="/" className="flex items-center gap-3 group">
-                <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-white font-bold text-sm">
-                  ب
-                </div>
-                <span className="text-lg font-black tracking-tight">
-                  باران
-                </span>
-              </Link>
-              <p className="text-sm text-white/50 leading-relaxed font-light">
-                ارائه دهنده خدمات تخصصی زیبایی، پوست و مو
-              </p>
-            </div>
+        {/* Hairline divider */}
+        <div className="h-px bg-white/10 mb-10" />
 
-            {/* Services */}
-            <div className="space-y-4">
-              <h4 className="text-xs font-semibold tracking-widest text-white/40 uppercase">خدمات</h4>
-              <ul className="space-y-3">
-                {footerLinks.services.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/60 hover:text-primary transition-colors duration-200 font-light"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Company */}
-            <div className="space-y-4">
-              <h4 className="text-xs font-semibold tracking-widest text-white/40 uppercase">کلینیک</h4>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link) => (
-                  <li key={link.href}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-white/60 hover:text-primary transition-colors duration-200 font-light"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact */}
-            <div className="space-y-4">
-              <h4 className="text-xs font-semibold tracking-widest text-white/40 uppercase">تماس</h4>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3 text-sm text-white/60 font-light">
-                  <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary/60" />
-                  <span>تهران، خیابان ولیعصر، پلاک ۱۲</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm text-white/60 font-light">
-                  <Phone className="h-4 w-4 shrink-0 text-primary/60" />
-                  <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm text-white/60 font-light">
-                  <Mail className="h-4 w-4 shrink-0 text-primary/60" />
-                  <span>info@baran-clinic.ir</span>
-                </li>
-                <li className="flex items-center gap-3 text-sm text-white/60 font-light">
-                  <Clock className="h-4 w-4 shrink-0 text-primary/60" />
-                  <span>شنبه تا پنجشنبه ۹ تا ۲۰</span>
-                </li>
-              </ul>
-            </div>
+        {/* Contact info — postscript style */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+          <div className="flex items-start gap-3">
+            <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary/60" />
+            <span className="text-sm text-white/50 font-light">
+              تهران — منطقه ۲۲ – بلوار پژوهش – شهرک چیتگر – برج جی۴ – طبقه اداری
+              غربی
+            </span>
           </div>
-
-          {/* Copyright */}
-          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/30 font-light">
-              © ۱۴۰۵ کلینیک زیبایی باران. تمامی حقوق محفوظ است.
-            </p>
-            <div className="flex items-center gap-6 text-xs text-white/30 font-light">
-              <a href="#" className="hover:text-primary transition-colors duration-200">حریم خصوصی</a>
-              <a href="#" className="hover:text-primary transition-colors duration-200">شرایط استفاده</a>
-            </div>
+          <div className="flex items-center gap-3">
+            <Phone className="h-4 w-4 shrink-0 text-primary/60" />
+            <a
+              href="tel:+989100300875"
+              className="text-sm text-white/50 font-light hover:text-primary transition-colors duration-200"
+            >
+              ۰۹۱۰۰۳۰۰۸۷۵
+            </a>
+          </div>
+          <div className="flex items-center gap-3">
+            <Clock className="h-4 w-4 shrink-0 text-primary/60" />
+            <span className="text-sm text-white/50 font-light">
+              شنبه تا پنجشنبه ۹ تا ۲۰
+            </span>
           </div>
         </div>
-      </Container>
+
+        {/* Bottom row — wordmark, links, copyright */}
+        <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <Link href="/" className="flex items-center gap-2.5 group">
+            <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">
+              ب
+            </div>
+            <span className="text-sm font-bold tracking-tight text-white/60 group-hover:text-white transition-colors duration-200">
+              کلینیک زیبایی باران
+            </span>
+          </Link>
+
+          <div className="flex items-center gap-6 text-xs text-white/30 font-light">
+            {footerLinks.company.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="hover:text-primary transition-colors duration-200"
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          <p className="text-xs text-white/20 font-light">
+            ©{" "}
+            {new Intl.DateTimeFormat("fa-IR", { year: "numeric" }).format(
+              new Date(),
+            )}{" "}
+            کلینیک زیبایی باران
+          </p>
+        </div>
+      </div>
     </footer>
   );
 }
