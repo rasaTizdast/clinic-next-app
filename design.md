@@ -8,9 +8,10 @@ system needs to grow.
 editorial
 
 ## Macrostructure family
-- Marketing pages (Home, About, Contact): Split Studio (15) — alternating diptych rhythm
+- Marketing pages (Home): Sanctuary Hero — full-viewport image-led hero with elegant typography, integrated CTA, and trust bar
 - Listing pages (Services, Packages, Products): Split Studio variant — grid with split hero
 - Detail pages (Service detail, Product detail): Long Document variant — editorial prose
+- Info pages (About, Contact): Stat-Led variant — data-driven with editorial voice
 
 ## Theme
 Custom luxury palette — warm rose-gold anchor (hue ~50)
@@ -27,9 +28,8 @@ Custom luxury palette — warm rose-gold anchor (hue ~50)
 - Display: Vazirmatn, weight 900, style normal
 - Body: Vazirmatn, weight 300
 - Labels: Vazirmatn, weight 600, letter-spacing 0.08em, uppercase
-- Display tracking: -0.02em
-- Type scale anchor: --text-display = clamp(2.5rem, 5vw + 1rem, 5rem)
-- Scale: major third (1.25 ratio)
+- Display tracking: -0.03em (marquee), -0.02em (section heads)
+- Type scale anchor: --text-marquee = clamp(3.5rem, 10vw + 1rem, 9rem)
 
 ## Spacing
 4-point named scale:
@@ -45,7 +45,7 @@ Custom luxury palette — warm rose-gold anchor (hue ~50)
 
 ## Motion
 - Easings: cubic-bezier(0.16, 1, 0.3, 1) named --ease-out
-- Reveal pattern: fade + slide-up (30px), 420ms, staggered 60ms per item
+- Reveal pattern: fade + slide-up (24px), 420ms, staggered 60ms per item
 - Reduced-motion fallback: opacity-only, ≤ 150ms
 - Duration tokens: --dur-micro: 120ms, --dur-short: 220ms, --dur-long: 420ms
 
@@ -59,9 +59,11 @@ Custom luxury palette — warm rose-gold anchor (hue ~50)
 - Secondary CTA: outlined, border rule color, rounded-xl
 - Icon: ArrowLeft (RTL-flipped)
 
-## Nav: N9 (Edge-aligned minimal)
-Wordmark hard-RTL (right), single CTA hard-LTR (left), vast empty space between.
+## Nav: N5 (Floating pill)
+Fixed floating pill, detached from edges, soft blur backdrop, soft shadow.
+Wordmark left, nav links center, CTA right.
 Mobile: hamburger + wordmark only.
 
-## Footer: Ft5 (Statement)
-One large Persian closing sentence dominates. Wordmark, minimal links, copyright beneath.
+## Footer: Ft6 (Letter close)
+Closes like a letter — "با عشق، تیم باران". Optional postscript with contact info.
+Warm, personal, editorial-quiet.
