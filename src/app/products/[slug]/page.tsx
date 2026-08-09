@@ -1,5 +1,3 @@
-"use client";
-
 import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
@@ -7,14 +5,13 @@ import { getProductBySlug } from "@/data";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { Button } from "@/components/ui/Button";
 import { ArrowLeft, ArrowRight } from "lucide-react";
-import { use } from "react";
 
 interface ProductPageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function ProductPage({ params }: ProductPageProps) {
-  const { slug } = use(params);
+export default async function ProductPage({ params }: ProductPageProps) {
+  const { slug } = await params;
   const product = getProductBySlug(slug);
 
   if (!product) {

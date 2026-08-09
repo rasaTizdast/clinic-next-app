@@ -1,5 +1,3 @@
-"use client";
-
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, Clock, Tag } from "lucide-react";
@@ -8,7 +6,6 @@ import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { formatPrice } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { use } from "react";
 
 const categoryLabels: Record<string, string> = {
   skin: "پوست",
@@ -21,8 +18,8 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export default function ServiceDetailPage({ params }: PageProps) {
-  const { slug } = use(params);
+export default async function ServiceDetailPage({ params }: PageProps) {
+  const { slug } = await params;
   const service = getServiceBySlug(slug);
 
   if (!service) {
