@@ -9,8 +9,8 @@ export function CTASection() {
   return (
     <section className="relative py-24 sm:py-32 lg:py-40 bg-foreground text-background overflow-hidden">
       {/* Decorative gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute inset-0 bg-linear-to-br from-primary/10 via-transparent to-primary/5 pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-150 h-150 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
 
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 relative">
         <ScrollReveal>
@@ -55,7 +55,10 @@ export function CTASection() {
 
             <div className="flex items-center justify-center gap-2 text-sm text-background/30 font-light">
               <MapPin className="h-4 w-4 text-primary/60" />
-              <span>تهران، خیابان ولیعصر، نبش کوچه گل</span>
+              <span>
+                تهران — منطقه ۲۲ – بلوار پژوهش – شهرک چیتگر – برج جی۴ – طبقه
+                اداری غربی
+              </span>
             </div>
           </div>
         </ScrollReveal>
