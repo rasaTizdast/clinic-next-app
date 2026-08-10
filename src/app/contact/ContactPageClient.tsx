@@ -1,6 +1,6 @@
 "use client";
 
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Clock } from "lucide-react";
 import { Container } from "@/components/layout/Container";
 import { ContactForm } from "@/components/shared/ContactForm";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -9,17 +9,13 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "آدرس",
-    value: "تهران، خیابان ولیعصر، نبش کوچه گل، پلاک ۱۲",
+    value:
+      "تهران — منطقه ۲۲ – بلوار پژوهش – شهرک چیتگر – برج جی۴ – طبقه اداری غربی",
   },
   {
     icon: Phone,
     title: "تلفن",
-    value: "۰۹۱۲-۱۲۳-۴۵۶۷",
-  },
-  {
-    icon: Mail,
-    title: "ایمیل",
-    value: "info@baran-clinic.ir",
+    value: "09100300875",
   },
   {
     icon: Clock,
@@ -58,14 +54,9 @@ export function ContactPageClient() {
 
             {/* Image column */}
             <ScrollReveal delay={100}>
-              <div className="relative rounded-2xl overflow-hidden bg-white/5 aspect-[4/3]">
-                <img
-                  src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=800&h=600&fit=crop"
-                  alt="کلینیک زیبایی باران"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/20 to-transparent" />
+              <div className="relative rounded-2xl overflow-hidden bg-white/5 aspect-4/3">
+                {/* Image will be added here */}
+                <div className="absolute inset-0 bg-linear-to-t from-foreground/20 to-transparent" />
               </div>
             </ScrollReveal>
           </div>
@@ -80,7 +71,10 @@ export function ContactPageClient() {
             <ScrollReveal>
               <div className="space-y-8">
                 {contactInfo.map((item) => (
-                  <div key={item.title} className="flex items-start gap-5 group">
+                  <div
+                    key={item.title}
+                    className="flex items-start gap-5 group"
+                  >
                     <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/15 transition-colors duration-200">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
@@ -88,7 +82,9 @@ export function ContactPageClient() {
                       <h3 className="text-base font-bold text-foreground mb-1">
                         {item.title}
                       </h3>
-                      <p className="text-sm text-foreground/40 font-light">{item.value}</p>
+                      <p className="text-sm text-foreground/40 font-light">
+                        {item.value}
+                      </p>
                     </div>
                   </div>
                 ))}
@@ -98,7 +94,9 @@ export function ContactPageClient() {
             {/* Contact Form */}
             <ScrollReveal delay={100}>
               <div className="bg-surface rounded-2xl p-6 lg:p-8 border border-border/30">
-                <h2 className="text-xl font-bold text-foreground mb-6">فرم تماس</h2>
+                <h2 className="text-xl font-bold text-foreground mb-6">
+                  فرم تماس
+                </h2>
                 <ContactForm />
               </div>
             </ScrollReveal>
