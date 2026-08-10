@@ -6,10 +6,10 @@ import { Button } from "@/components/ui/Button";
 import { Input, Textarea } from "@/components/ui/Input";
 
 export function ContactForm() {
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "success">("idle");
   const [errors, setErrors] = useState<Record<string, string>>({});
 
-  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
 
@@ -28,21 +28,7 @@ export function ContactForm() {
     }
 
     setErrors({});
-    setStatus("loading");
-
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, phone, message }),
-      });
-
-      if (!response.ok) throw new Error("Failed to send");
-
-      setStatus("success");
-    } catch {
-      setStatus("error");
-    }
+    setStatus("success");
   }
 
   if (status === "success") {
@@ -86,20 +72,10 @@ export function ContactForm() {
       <Button
         type="submit"
         className="w-full gap-2 rounded-xl"
-        disabled={status === "loading"}
       >
-        {status === "loading" ? (
-          <span className="animate-spin h-4 w-4 border-2 border-white border-t-transparent rounded-full" />
-        ) : (
-          <Send className="h-4 w-4" />
-        )}
-        {status === "loading" ? "در حال ارسال..." : "ارسال پیام"}
+        <Send className="h-4 w-4" />
+        ارسال پیام
       </Button>
-      {status === "error" && (
-        <p className="text-sm text-destructive text-center">
-          خطا در ارسال پیام. لطفاً دوباره تلاش کنید.
-        </p>
-      )}
     </form>
   );
 }
