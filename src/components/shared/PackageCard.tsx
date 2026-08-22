@@ -25,7 +25,7 @@ const categoryConfig = {
   },
   premium: {
     label: "ویژه",
-    headerBg: "bg-foreground",
+    headerBg: "bg-primary/10",
     accentColor: "text-primary",
   },
 };
@@ -40,7 +40,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
       className={cn(
         "relative flex flex-col overflow-hidden rounded-2xl bg-surface border transition-all duration-300 hover:-translate-y-0.5",
         pkg.popular ? "border-primary/30" : "border-border/30",
-        isPremium && "text-white bg-foreground border-transparent"
+        isPremium && "border-primary/20"
       )}
     >
       {pkg.popular && (
@@ -48,14 +48,13 @@ export function PackageCard({ pkg }: PackageCardProps) {
       )}
 
       {/* Header */}
-      <div className={cn("p-6 pb-5", isPremium ? "bg-transparent" : config.headerBg)}>
+      <div className={cn("p-6 pb-5", config.headerBg)}>
         <div className="flex items-center justify-between mb-5">
           <Badge
             variant={pkg.popular ? "warning" : "default"}
             className={cn(
               "px-3 py-1 text-xs font-semibold rounded-full",
-              !pkg.popular && !isPremium && "bg-foreground/5 text-foreground/60",
-              isPremium && "bg-primary/20 text-primary border-none"
+              !pkg.popular && "bg-foreground/5 text-foreground/60"
             )}
           >
             {pkg.popular && <Star className="h-3 w-3 ml-1 fill-current" />}
@@ -63,30 +62,24 @@ export function PackageCard({ pkg }: PackageCardProps) {
           </Badge>
 
           {freeCount > 0 && (
-            <span className={cn(
-              "inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full",
-              isPremium ? "bg-success/20 text-success" : "bg-success/10 text-success"
-            )}>
+            <span className="inline-flex items-center gap-1 text-[11px] font-semibold px-2.5 py-1 rounded-full bg-success/10 text-success">
               <Gift className="h-3 w-3" />
               {freeCount} رایگان
             </span>
           )}
         </div>
 
-        <h3 className={cn("text-xl font-bold mb-1.5", isPremium ? "text-white" : "text-foreground")}>
+        <h3 className="text-xl font-bold mb-1.5 text-foreground">
           {pkg.name}
         </h3>
-        <p className={cn("text-sm leading-relaxed", isPremium ? "text-white/50" : "text-foreground/40")}>
+        <p className="text-sm leading-relaxed text-foreground/40">
           {pkg.description}
         </p>
       </div>
 
       {/* Services list */}
       <div className="px-6 py-5 flex-1">
-        <p className={cn(
-          "text-[10px] font-bold uppercase tracking-widest mb-3",
-          isPremium ? "text-white/30" : "text-foreground/30"
-        )}>
+        <p className="text-[10px] font-bold uppercase tracking-widest mb-3 text-foreground/30">
           خدمات شامل
         </p>
         <ul className="space-y-2">
@@ -97,9 +90,7 @@ export function PackageCard({ pkg }: PackageCardProps) {
                 key={index}
                 className={cn(
                   "flex items-center justify-between gap-3 py-2.5 px-3 rounded-lg",
-                  isPremium
-                    ? "bg-white/[0.04]"
-                    : pkgService.free ? "bg-success/5" : "bg-muted/50"
+                  pkgService.free ? "bg-success/5" : "bg-muted/50"
                 )}
               >
                 <div className="flex items-center gap-2.5 min-w-0">
@@ -108,15 +99,12 @@ export function PackageCard({ pkg }: PackageCardProps) {
                       "flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center",
                       pkgService.free
                         ? "bg-success/20 text-success"
-                        : isPremium ? "bg-primary/20 text-primary" : "bg-primary/10 text-primary"
+                        : "bg-primary/10 text-primary"
                     )}
                   >
                     <Check className="h-3 w-3" />
                   </span>
-                  <span className={cn(
-                    "text-sm font-medium truncate",
-                    isPremium ? "text-white/60" : "text-foreground/50"
-                  )}>
+                  <span className="text-sm font-medium truncate text-foreground/50">
                     {service?.title || "خدمت"}
                   </span>
                 </div>
@@ -133,20 +121,17 @@ export function PackageCard({ pkg }: PackageCardProps) {
       </div>
 
       {/* Price + CTA */}
-      <div className={cn(
-        "px-6 pb-6 pt-5 mt-auto",
-        isPremium ? "border-t border-white/[0.06]" : "border-t border-border/20"
-      )}>
+      <div className="px-6 pb-6 pt-5 mt-auto border-t border-border/20">
         <div className="flex items-end justify-between mb-5">
           <div>
             <div className="flex items-baseline gap-1.5">
               <span className={cn("text-2xl font-black tracking-tight", config.accentColor)}>
                 {formatPrice(pkg.price)}
               </span>
-              <span className={cn("text-xs font-medium", isPremium ? "text-white/30" : "text-foreground/30")}>تومان</span>
+              <span className="text-xs font-medium text-foreground/30">تومان</span>
             </div>
             {pkg.originalPrice && (
-              <span className={cn("text-xs line-through", isPremium ? "text-white/25" : "text-foreground/25")}>
+              <span className="text-xs line-through text-foreground/25">
                 {formatPrice(pkg.originalPrice)}
               </span>
             )}
