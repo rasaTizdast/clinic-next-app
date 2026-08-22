@@ -34,7 +34,7 @@ export default function Home() {
             <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
               <div className="flex flex-col gap-5 max-w-5xl mx-auto">
                 {[1, 2, 3].map((i) => (
-                  <Skeleton key={i} className="h-56 rounded-2xl bg-foreground/5" />
+                  <Skeleton key={i} className="h-56 rounded-2xl bg-muted" />
                 ))}
               </div>
             </div>

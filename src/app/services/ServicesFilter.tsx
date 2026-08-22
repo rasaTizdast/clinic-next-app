@@ -35,7 +35,7 @@ export function ServicesFilter() {
                 "transition-all duration-300",
                 "active:scale-[0.97]",
                 active === cat.key
-                  ? "bg-foreground text-white shadow-lg shadow-foreground/20"
+                  ? "bg-primary text-white shadow-lg shadow-primary/20"
                   : "bg-muted/50 text-foreground/60 hover:text-foreground hover:bg-muted border border-transparent hover:border-border/50"
               )}
             >
