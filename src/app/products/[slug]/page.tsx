@@ -21,12 +21,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
   return (
     <>
       {/* Hero — Split diptych */}
-      <section className="relative py-24 sm:py-32 lg:py-40 bg-foreground text-white overflow-hidden">
+      <section className="relative py-24 sm:py-32 lg:py-40 bg-background overflow-hidden border-b border-border/20">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
           <ScrollReveal>
             <Link
               href="/products"
-              className="inline-flex items-center gap-2 text-sm text-white/40 hover:text-primary mb-10 transition-colors duration-200"
+              className="inline-flex items-center gap-2 text-sm text-foreground/40 hover:text-primary mb-10 transition-colors duration-200"
             >
               <ArrowRight className="h-4 w-4" />
               بازگشت به محصولات
@@ -34,7 +34,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
               {/* Image */}
-              <div className="relative aspect-square rounded-2xl overflow-hidden">
+              <div className="relative aspect-square rounded-2xl overflow-hidden border border-border/20">
                 <Image
                   src={product.image}
                   alt={product.title}
@@ -42,30 +42,30 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   className="object-cover"
                   priority
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent" />
               </div>
 
               {/* Info */}
               <div>
                 <h1
-                  className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-[1.1]"
+                  className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4 leading-[1.1] text-foreground"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   {product.title}
                 </h1>
 
-                <p className="text-lg text-white/40 mb-6 leading-relaxed font-light max-w-lg">
+                <p className="text-lg text-foreground/40 mb-6 leading-relaxed font-light max-w-lg">
                   {product.description}
                 </p>
 
                 {product.price && (
                   <p className="text-2xl font-black text-primary mb-6">
                     {product.price.toLocaleString("fa-IR")}
-                    <span className="text-sm font-medium text-white/30 mr-1">تومان</span>
+                    <span className="text-sm font-medium text-foreground/30 mr-1">تومان</span>
                   </p>
                 )}
 
-                <p className="text-base text-white/50 mb-10 leading-relaxed font-light">
+                <p className="text-base text-foreground/50 mb-10 leading-relaxed font-light">
                   {product.longDescription}
                 </p>
 
