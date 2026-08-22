@@ -20,12 +20,12 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative bg-foreground text-background">
+    <footer className="relative bg-surface border-t border-border/30 text-foreground">
       {/* Ft6 Letter Close — intimate, personal signoff */}
       <div className="max-w-4xl mx-auto px-5 sm:px-8 lg:px-12 py-20 lg:py-28">
         {/* Large closing statement */}
         <p
-          className="text-2xl sm:text-3xl lg:text-4xl font-light leading-[1.4] tracking-tight max-w-2xl mb-12"
+          className="text-2xl sm:text-3xl lg:text-4xl font-light leading-[1.4] tracking-tight max-w-2xl mb-12 text-foreground"
           style={{ letterSpacing: "-0.01em" }}
         >
           زیبایی حق هر انسانی است.
@@ -37,24 +37,24 @@ export function Footer() {
         {/* Letter signoff */}
         <div className="mb-12">
           <p
-            className="text-lg font-light text-white/60"
+            className="text-lg font-light text-foreground/50"
             style={{ fontStyle: "italic" }}
           >
             با عشق،
           </p>
-          <p className="text-xl font-bold text-white mt-1">
+          <p className="text-xl font-bold text-foreground mt-1">
             — کلینیک زیبایی باران
           </p>
         </div>
 
         {/* Hairline divider */}
-        <div className="h-px bg-white/10 mb-10" />
+        <div className="h-px bg-border mb-10" />
 
         {/* Contact info — postscript style */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
           <div className="flex items-start gap-3">
             <MapPin className="h-4 w-4 mt-0.5 shrink-0 text-primary/60" />
-            <span className="text-sm text-white/50 font-light">
+            <span className="text-sm text-foreground/50 font-light">
               تهران — منطقه ۲۲ – بلوار پژوهش – شهرک چیتگر – برج جی۴ – طبقه اداری
               غربی
             </span>
@@ -63,14 +63,14 @@ export function Footer() {
             <Phone className="h-4 w-4 shrink-0 text-primary/60" />
             <a
               href="tel:+989100300875"
-              className="text-sm text-white/50 font-light hover:text-primary transition-colors duration-200"
+              className="text-sm text-foreground/50 font-light hover:text-primary transition-colors duration-200"
             >
               ۰۹۱۰۰۳۰۰۸۷۵
             </a>
           </div>
           <div className="flex items-center gap-3">
             <Clock className="h-4 w-4 shrink-0 text-primary/60" />
-            <span className="text-sm text-white/50 font-light">
+            <span className="text-sm text-foreground/50 font-light">
               شنبه تا پنجشنبه ۹ تا ۲۰
             </span>
           </div>
@@ -82,12 +82,12 @@ export function Footer() {
             <div className="w-7 h-7 rounded-full bg-primary flex items-center justify-center text-white font-bold text-xs">
               ب
             </div>
-            <span className="text-sm font-bold tracking-tight text-white/60 group-hover:text-white transition-colors duration-200">
+            <span className="text-sm font-bold tracking-tight text-foreground/60 group-hover:text-foreground transition-colors duration-200">
               کلینیک زیبایی باران
             </span>
           </Link>
 
-          <div className="flex items-center gap-6 text-xs text-white/30 font-light">
+          <div className="flex items-center gap-6 text-xs text-foreground/40 font-light">
             {footerLinks.company.map((link) => (
               <Link
                 key={link.href}
@@ -99,7 +99,7 @@ export function Footer() {
             ))}
           </div>
 
-          <p className="text-xs text-white/20 font-light">
+          <p className="text-xs text-foreground/30 font-light">
             ©{" "}
             {new Intl.DateTimeFormat("fa-IR", { year: "numeric" }).format(
               new Date(),
