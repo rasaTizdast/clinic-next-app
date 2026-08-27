@@ -32,13 +32,13 @@ export function CTASection() {
             </p>
 
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-10">
-              <a href="tel:+989121234567" className="w-full sm:w-auto">
+              <a href="tel:+989100300875" className="w-full sm:w-auto">
                 <Button
                   size="lg"
                   className="w-full gap-3 bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 btn-premium rounded-xl py-5 text-lg"
                 >
                   <Phone className="h-5 w-5" />
-                  <span className="font-bold">۰۹۱۲-۱۲۳-۴۵۶۷</span>
+                  <span className="font-bold">۰۹۱۰۰۳۰۰۸۷۵</span>
                 </Button>
               </a>
               <Link href="/contact" className="w-full sm:w-auto">

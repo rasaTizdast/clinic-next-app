@@ -2,7 +2,6 @@
 
 import { MapPin, Phone, Clock } from "lucide-react";
 import { Container } from "@/components/layout/Container";
-import { ContactForm } from "@/components/shared/ContactForm";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const contactInfo = [
@@ -15,7 +14,8 @@ const contactInfo = [
   {
     icon: Phone,
     title: "تلفن",
-    value: "09100300875",
+    value: "۰۹۱۰۰۳۰۰۸۷۵",
+    href: "tel:+989100300875",
   },
   {
     icon: Clock,
@@ -41,12 +41,12 @@ export function ContactPageClient() {
                   تماس با ما
                 </div>
                 <h1
-                  className="text-4xl sm:text-5xl lg:text-6xl font-black mb-4 leading-tight text-foreground"
+                  className="text-4xl sm:text-5xl lg:text-6xl font-black mb-6 leading-tight text-foreground"
                   style={{ letterSpacing: "-0.02em" }}
                 >
                   تماس با <span className="text-primary">باران</span>
                 </h1>
-                <p className="text-lg text-foreground/40 max-w-lg font-light leading-relaxed">
+                <p className="text-lg text-foreground font-semibold max-w-xl leading-relaxed">
                   برای دریافت مشاوره یا رزرو وقت با ما تماس بگیرید
                 </p>
               </div>
@@ -63,43 +63,38 @@ export function ContactPageClient() {
         </div>
       </section>
 
-      {/* Split: Info + Form */}
-      <section className="py-20 sm:py-28">
+      {/* Contact content */}
+      <section className="py-24 sm:py-32">
         <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-14 lg:gap-20">
-            {/* Contact Info */}
-            <ScrollReveal>
-              <div className="space-y-8">
-                {contactInfo.map((item) => (
-                  <div
-                    key={item.title}
-                    className="flex items-start gap-5 group"
-                  >
-                    <div className="p-3 bg-primary/10 rounded-xl group-hover:bg-primary/15 transition-colors duration-200">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
+            {contactInfo.map((item) => {
+              const content = item.href ? (
+                <a
+                  href={item.href}
+                  className="text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors duration-200"
+                >
+                  {item.value}
+                </a>
+              ) : (
+                <p className="text-base sm:text-lg font-bold text-foreground leading-relaxed">
+                  {item.value}
+                </p>
+              );
+
+              return (
+                <ScrollReveal key={item.title}>
+                  <div className="flex flex-col items-start gap-4">
+                    <div className="p-3 bg-primary/10 rounded-xl">
                       <item.icon className="h-5 w-5 text-primary" />
                     </div>
-                    <div>
-                      <h3 className="text-base font-bold text-foreground mb-1">
-                        {item.title}
-                      </h3>
-                      <p className="text-sm text-foreground/40 font-light">
-                        {item.value}
-                      </p>
-                    </div>
+                    <h3 className="text-base font-bold text-foreground">
+                      {item.title}
+                    </h3>
+                    {content}
                   </div>
-                ))}
-              </div>
-            </ScrollReveal>
-
-            {/* Contact Form */}
-            <ScrollReveal delay={100}>
-              <div className="bg-surface rounded-2xl p-6 lg:p-8 border border-border/30">
-                <h2 className="text-xl font-bold text-foreground mb-6">
-                  فرم تماس
-                </h2>
-                <ContactForm />
-              </div>
-            </ScrollReveal>
+                </ScrollReveal>
+              );
+            })}
           </div>
         </Container>
       </section>

@@ -196,11 +196,11 @@ export function Header() {
             ))}
             <div className="pt-3 px-4 mt-2 border-t border-border/50">
               <a
-                href="tel:+989121234567"
+                href="tel:+989100300875"
                 className="flex items-center gap-2 py-1 text-sm font-semibold text-primary"
               >
                 <Phone className="h-4 w-4" />
-                <span>۰۹۱۲-۱۲۳-۴۵۶۷</span>
+                <span>۰۹۱۰۰۳۰۰۸۷۵</span>
               </a>
             </div>
           </nav>
