@@ -1,148 +1,115 @@
 import { Package } from "@/lib/types";
 
+const carbonTiers = (single: number, packageRate: number): Package["tiers"] => [
+  { label: "تک جلسه", price: single },
+  { label: "هر جلسه با رزرو پکیج ۳ جلسه‌ای", price: packageRate },
+];
+
+const laserWomenTiers = (single: number, four: number, eight: number): Package["tiers"] => [
+  { label: "تک جلسه", price: single },
+  { label: "هر جلسه با پکیج ۴ جلسه‌ای", price: four },
+  { label: "هر جلسه با پکیج ۸ جلسه‌ای", price: eight },
+];
+
 export const packages: Package[] = [
+  // ─── کربن تراپی ───
   {
-    id: "1",
-    name: "پکیج پاکسازی پایه",
-    description: "شروع مناسب برای مراقبت از پوست صورت",
-    price: 3500000,
-    services: [
-      { serviceId: "3", free: false },
-      { serviceId: "8", free: false },
-    ],
-    popular: false,
-    category: "basic",
-  },
-  {
-    id: "2",
-    name: "پکیج جوانسازی صورت",
-    description: "ترکیب بوتاکس و پاکسازی برای جوانسازی کامل",
-    price: 6500000,
-    originalPrice: 8000000,
-    services: [
-      { serviceId: "1", free: false },
-      { serviceId: "3", free: false },
-      { serviceId: "8", free: true },
-    ],
+    id: "carbon-face",
+    name: "صورت کامل",
+    description: "کربن تراپی صورت برای پوستی شفاف، یکدست و بدون منافذ باز",
+    group: "carbon",
+    tiers: carbonTiers(1200000, 850000),
     popular: true,
-    category: "standard",
   },
   {
-    id: "3",
-    name: "پکیج لیزر و پاکسازی",
-    description: "لیزر موهای زائد همراه با پاکسازی پوست",
-    price: 4200000,
-    originalPrice: 5300000,
-    services: [
-      { serviceId: "2", free: false },
-      { serviceId: "3", free: false },
-    ],
-    popular: false,
-    category: "basic",
+    id: "carbon-hand-back",
+    name: "پشت دست",
+    description: "کربن تراپی پشت دست برای روشنی و شفافیت پوست",
+    group: "carbon",
+    tiers: carbonTiers(700000, 500000),
   },
   {
-    id: "4",
-    name: "پکیج مزوتراپی و PRP",
-    description: "جوانسازی عمیق پوست با مزوتراپی و پلاسمای غنی",
-    price: 8000000,
-    originalPrice: 10200000,
-    services: [
-      { serviceId: "6", free: false },
-      { serviceId: "4", free: false },
-      { serviceId: "3", free: true },
-    ],
-    popular: false,
-    category: "standard",
+    id: "carbon-underarm",
+    name: "زیربغل",
+    description: "کربن تراپی زیربغل برای روشن‌شدگی و کاهش تیرگی ناحیه",
+    group: "carbon",
+    tiers: carbonTiers(900000, 600000),
   },
   {
-    id: "5",
-    name: "پکیج زیبایی صورت",
-    description: "بوتاکس، فیلر لب و پاکسازی صورت",
-    price: 9500000,
-    originalPrice: 12000000,
-    services: [
-      { serviceId: "1", free: false },
-      { serviceId: "7", free: false },
-      { serviceId: "3", free: false },
-      { serviceId: "8", free: true },
-    ],
+    id: "carbon-elbow",
+    name: "آرنج",
+    description: "کربن تراپی آرنج برای کاهش تیرگی و یکدست‌شدن رنگ پوست",
+    group: "carbon",
+    tiers: carbonTiers(700000, 500000),
+  },
+  {
+    id: "carbon-knee",
+    name: "زانو",
+    description: "کربن تراپی زانو برای شفافیت و لطافت ناحیه",
+    group: "carbon",
+    tiers: carbonTiers(700000, 500000),
+  },
+  {
+    id: "carbon-bikini",
+    name: "بیکینی",
+    description: "کربن تراپی ناحیه بیکینی برای روشن‌شدگی و طراوت پوست",
+    group: "carbon",
+    tiers: carbonTiers(990000, 700000),
+  },
+  {
+    id: "carbon-buttocks",
+    name: "باسن",
+    description: "کربن تراپی باسن برای یکدست‌سازی رنگ و شفافیت پوست",
+    group: "carbon",
+    tiers: carbonTiers(1500000, 1000000),
+  },
+  {
+    id: "carbon-groin",
+    name: "کشاله",
+    description: "کربن تراپی کشاله ران برای کاهش تیرگی ناحیه",
+    group: "carbon",
+    tiers: carbonTiers(990000, 700000),
+  },
+  {
+    id: "carbon-ankle",
+    name: "قوزک",
+    description: "کربن تراپی قوزک پا برای روشنی و لطافت پوست",
+    group: "carbon",
+    tiers: carbonTiers(700000, 500000),
+  },
+
+  // ─── پکیج‌های لیزر بانوان ───
+  {
+    id: "laser-w-practical",
+    name: "پکیج کاربردی",
+    description: "ترکیبی از ساق، ساعد، بیکینی و زیربغل برای پوشش نواحی پرکاربرد",
+    group: "laser-women",
+    tiers: laserWomenTiers(990000, 890000, 790000),
+  },
+  {
+    id: "laser-w-total",
+    name: "پکیج توتال",
+    description: "پوشش تمامی قسمت‌های بدن با بهترین صرفه‌جویی در جلسات متعدد",
+    group: "laser-women",
+    tiers: laserWomenTiers(1290000, 1190000, 1090000),
     popular: true,
-    category: "premium",
   },
   {
-    id: "6",
-    name: "پکیج کاشت مو",
-    description: "کاشت موی طبیعی با مراقبت‌های بعد از درمان",
-    price: 16500000,
-    originalPrice: 19000000,
-    services: [
-      { serviceId: "5", free: false },
-      { serviceId: "6", free: true },
-    ],
-    popular: false,
-    category: "premium",
+    id: "laser-w-whole-body",
+    name: "پکیج کل بدن",
+    description: "دست و پا کامل، بیکینی کامل، زیربغل، گودی کمر، خط ناف و صورت",
+    group: "laser-women",
+    tiers: laserWomenTiers(1090000, 990000, 890000),
   },
+
+  // ─── پکیج لیزر آقایان ───
   {
-    id: "7",
-    name: "پکیج لایه‌برداری کامل",
-    description: "لایه‌برداری شیمیایی و پاکسازی عمیق پوست",
-    price: 5000000,
-    originalPrice: 6300000,
-    services: [
-      { serviceId: "8", free: false },
-      { serviceId: "3", free: false },
-      { serviceId: "6", free: true },
-    ],
-    popular: false,
-    category: "standard",
-  },
-  {
-    id: "8",
-    name: "پکیج ضد پیری",
-    description: "مجموعه کامل جوانسازی و ضد پیری پوست",
-    price: 14000000,
-    originalPrice: 18700000,
-    services: [
-      { serviceId: "1", free: false },
-      { serviceId: "4", free: false },
-      { serviceId: "6", free: false },
-      { serviceId: "3", free: true },
-      { serviceId: "8", free: true },
-    ],
+    id: "laser-m-fullbody",
+    name: "پکیج فول بادی آقایان",
+    description: "۶ جلسه فول بادی + ۲ جلسه هدیه",
+    group: "laser-men",
+    tiers: [{ label: "پکیج ۶ + ۲ جلسه", price: 9990000 }],
     popular: true,
-    category: "premium",
-  },
-  {
-    id: "9",
-    name: "پکیج موی سالم",
-    description: "تقویت و بازسازی مو با مزوتراپی و PRP",
-    price: 7000000,
-    originalPrice: 8700000,
-    services: [
-      { serviceId: "6", free: false },
-      { serviceId: "4", free: false },
-    ],
-    popular: false,
-    category: "standard",
-  },
-  {
-    id: "10",
-    name: "پکیج لاکچری زیبایی",
-    description: "تجربه لاکچری زیبایی با تمام خدمات ویژه کلینیک",
-    price: 28000000,
-    originalPrice: 38000000,
-    services: [
-      { serviceId: "1", free: false },
-      { serviceId: "2", free: false },
-      { serviceId: "3", free: false },
-      { serviceId: "4", free: false },
-      { serviceId: "6", free: false },
-      { serviceId: "7", free: false },
-      { serviceId: "8", free: true },
-      { serviceId: "5", free: true },
-    ],
-    popular: false,
-    category: "premium",
   },
 ];
 
@@ -150,10 +117,6 @@ export function getPackages(): Package[] {
   return packages;
 }
 
-export function getPackageById(id: string): Package | undefined {
-  return packages.find((p) => p.id === id);
-}
-
-export function getPopularPackage(): Package | undefined {
-  return packages.find((p) => p.popular);
+export function getPackagesByGroup(group: Package["group"]): Package[] {
+  return packages.filter((p) => p.group === group);
 }
