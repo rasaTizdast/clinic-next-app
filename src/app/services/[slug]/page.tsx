@@ -1,17 +1,17 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { ArrowLeft, ArrowRight, Clock, Tag } from "lucide-react";
+import { ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import { getServiceBySlug } from "@/data";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
-import { formatPrice } from "@/lib/utils";
+import { formatAmount } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
 const categoryLabels: Record<string, string> = {
-  skin: "پوست",
-  hair: "مو",
-  body: "بدن",
-  face: "صورت",
+  "filler-botox": "فیلر و بوتاکس",
+  "laser-women": "لیزر بانوان",
+  "laser-men": "لیزر آقایان",
+  facial: "فیشیال",
 };
 
 interface PageProps {
@@ -54,8 +54,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                   {service.title}
                 </h1>
 
-                <p className="text-lg text-foreground/40 mb-8 leading-relaxed font-light max-w-lg">
-                  {service.longDescription}
+                <p className="text-lg text-foreground/60 mb-8 leading-relaxed font-light max-w-lg">
+                  {service.description}
                 </p>
 
                 <div className="flex flex-wrap gap-6 mb-8">
@@ -64,20 +64,13 @@ export default async function ServiceDetailPage({ params }: PageProps) {
                       <Tag className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="text-[11px] text-foreground/40 mb-0.5">قیمت</p>
-                      <p className="text-lg font-bold text-primary">
-                        {formatPrice(service.price)}
-                        <span className="text-xs font-normal text-foreground/30 mr-1">تومان</span>
+                      <p className="text-[11px] text-foreground/55 mb-0.5">
+                        {service.fromPrice ? "شروع قیمت از" : "قیمت"}
                       </p>
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-3">
-                    <div className="p-2.5 bg-muted rounded-xl">
-                      <Clock className="h-5 w-5 text-foreground/40" />
-                    </div>
-                    <div>
-                      <p className="text-[11px] text-foreground/40 mb-0.5">مدت زمان</p>
-                      <p className="text-lg font-bold text-foreground/70">{service.duration}</p>
+                      <p className="text-lg font-bold text-primary">
+                        {formatAmount(service.price)}
+                        <span className="text-xs font-normal text-foreground/45 mr-1">تومان</span>
+                      </p>
                     </div>
                   </div>
                 </div>
