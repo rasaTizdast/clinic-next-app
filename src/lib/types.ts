@@ -1,30 +1,35 @@
+export type ServiceCategory =
+  | "filler-botox"
+  | "laser-women"
+  | "laser-men"
+  | "facial";
+
 export interface Service {
   id: string;
   slug: string;
   title: string;
   description: string;
-  longDescription: string;
   price: number;
-  duration: string;
-  category: "skin" | "hair" | "body" | "face";
-  icon: string;
-  featured: boolean;
+  fromPrice?: boolean;
+  category: ServiceCategory;
+  subcategory: string;
+  featured?: boolean;
 }
 
-export interface PackageService {
-  serviceId: string;
-  free: boolean;
+export type PackageGroup = "carbon" | "laser-women" | "laser-men";
+
+export interface PackageTier {
+  label: string;
+  price: number;
 }
 
 export interface Package {
   id: string;
   name: string;
   description: string;
-  price: number;
-  originalPrice?: number;
-  services: PackageService[];
-  popular: boolean;
-  category: "basic" | "standard" | "premium";
+  group: PackageGroup;
+  tiers: PackageTier[];
+  popular?: boolean;
 }
 
 export interface Testimonial {
