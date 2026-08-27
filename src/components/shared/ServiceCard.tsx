@@ -1,58 +1,43 @@
 "use client";
 
 import Link from "next/link";
-import {
-  Sparkles,
-  Zap,
-  Droplets,
-  Heart,
-  Scissors,
-  Syringe,
-  Flower2,
-  Layers,
-  Clock,
-  ArrowLeft,
-} from "lucide-react";
+import { Syringe, Zap, Sparkles, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
-import { formatPrice } from "@/lib/utils";
+import { formatAmount } from "@/lib/utils";
 import { Service } from "@/lib/types";
 import { cn } from "@/lib/utils";
 
 const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
-  sparkles: Sparkles,
-  zap: Zap,
-  droplets: Droplets,
-  heart: Heart,
-  scissors: Scissors,
-  syringe: Syringe,
-  flower2: Flower2,
-  layers: Layers,
+  "filler-botox": Syringe,
+  "laser-women": Zap,
+  "laser-men": Zap,
+  facial: Sparkles,
 };
 
 const categoryConfig: Record<
-  string,
+  Service["category"],
   { label: string; iconBg: string; iconColor: string; badgeVariant: "accent" | "default" | "success" }
 > = {
-  skin: {
-    label: "پوست",
+  "filler-botox": {
+    label: "فیلر و بوتاکس",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
     badgeVariant: "accent",
   },
-  hair: {
-    label: "مو",
-    iconBg: "bg-primary/10",
-    iconColor: "text-primary",
-    badgeVariant: "default",
-  },
-  body: {
-    label: "بدن",
+  "laser-women": {
+    label: "لیزر بانوان",
     iconBg: "bg-success/10",
     iconColor: "text-success",
     badgeVariant: "success",
   },
-  face: {
-    label: "صورت",
+  "laser-men": {
+    label: "لیزر آقایان",
+    iconBg: "bg-foreground/5",
+    iconColor: "text-foreground/60",
+    badgeVariant: "default",
+  },
+  facial: {
+    label: "فیشیال",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
     badgeVariant: "default",
@@ -65,7 +50,7 @@ interface ServiceCardProps {
 }
 
 export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
-  const Icon = iconMap[service.icon] || Sparkles;
+  const Icon = iconMap[service.category] || Sparkles;
   const config = categoryConfig[service.category];
   const isDark = variant === "dark";
 
@@ -100,15 +85,22 @@ export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
         {/* Content */}
         <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
           <div>
-            <h3 className={cn(
-              "text-lg font-bold mb-1.5 transition-colors duration-200",
-              "text-foreground group-hover:text-primary"
-            )}>
-              {service.title}
-            </h3>
+            <div className="flex items-center gap-2.5 mb-1.5">
+              <h3 className={cn(
+                "text-lg font-bold transition-colors duration-200",
+                "text-foreground group-hover:text-primary"
+              )}>
+                {service.title}
+              </h3>
+              {service.subcategory && (
+                <span className="text-[10px] font-semibold text-foreground/50 bg-muted px-2 py-0.5 rounded-full">
+                  {service.subcategory}
+                </span>
+              )}
+            </div>
             <p className={cn(
-              "text-sm leading-relaxed line-clamp-2 mb-5",
-              "text-foreground/40"
+              "text-sm leading-relaxed line-clamp-3 mb-5",
+              "text-foreground/60"
             )}>
               {service.description}
             </p>
@@ -118,16 +110,14 @@ export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
             "flex items-center justify-between pt-4 border-t",
             "border-border/30"
           )}>
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-1.5">
+              {service.fromPrice && (
+                <span className="text-xs font-medium text-foreground/60">از</span>
+              )}
               <span className="text-lg font-black text-primary">
-                {formatPrice(service.price)}
+                {formatAmount(service.price)}
               </span>
-              <span className="text-xs text-foreground/30">تومان</span>
-              <span className="hidden sm:inline text-foreground/15">|</span>
-              <div className="hidden sm:flex items-center gap-1 text-foreground/30">
-                <Clock className="h-3.5 w-3.5" />
-                <span className="text-xs">{service.duration}</span>
-              </div>
+              <span className="text-xs text-foreground/50">تومان</span>
             </div>
             <div className="flex items-center gap-2 text-sm font-semibold text-primary/70 group-hover:text-primary transition-colors duration-200">
               <span>جزئیات</span>
