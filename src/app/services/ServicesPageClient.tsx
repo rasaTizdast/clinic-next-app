@@ -3,22 +3,33 @@
 import { getServices, getServicesByCategory } from "@/data";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { useState } from "react";
-import { cn } from "@/lib/utils";
+import { useState, useRef } from "react";
+import { cn, scrollFilterIntoView } from "@/lib/utils";
 
 const categories = [
   { key: "all", label: "همه" },
-  { key: "face", label: "صورت" },
-  { key: "skin", label: "پوست" },
-  { key: "hair", label: "مو" },
-  { key: "body", label: "بدن" },
+  { key: "filler-botox", label: "فیلر و بوتاکس" },
+  { key: "laser-women", label: "لیزر بانوان" },
+  { key: "laser-men", label: "لیزر آقایان" },
+  { key: "facial", label: "فیشیال" },
 ] as const;
 
 export function ServicesPageClient() {
-  const [activeCategory, setActiveCategory] = useState<string>("all");
+  type CategoryKey = (typeof categories)[number]["key"];
+  const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
+  const listTopRef = useRef<HTMLDivElement>(null);
   const services = activeCategory === "all"
     ? getServices()
-    : getServicesByCategory(activeCategory as "face" | "skin" | "hair" | "body");
+    : getServicesByCategory(activeCategory);
+
+  const handleSelect = (key: CategoryKey) => {
+    setActiveCategory(key);
+    // defer until after state update so DOM is stable
+    requestAnimationFrame(() => {
+      const offset = window.matchMedia("(min-width: 1024px)").matches ? 64 : 76;
+      scrollFilterIntoView(listTopRef.current, offset);
+    });
+  };
 
   return (
     <>
@@ -42,7 +53,7 @@ export function ServicesPageClient() {
                 >
                   خدمات <span className="text-primary">تخصصی</span> زیبایی
                 </h1>
-                <p className="text-lg text-foreground/40 max-w-lg font-light leading-relaxed">
+                <p className="text-lg text-foreground/60 max-w-lg font-light leading-relaxed">
                   با بهترین متخصصان و پیشرفته‌ترین تجهیزات
                 </p>
               </div>
@@ -67,25 +78,33 @@ export function ServicesPageClient() {
       {/* Filter + Grid */}
       <section className="py-20 sm:py-28">
         <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12">
-          {/* Category filter */}
-          <ScrollReveal>
-            <div className="flex flex-wrap gap-2 justify-center mb-14">
+          {/* sentinel — non-sticky anchor for scroll-to-top */}
+          <div ref={listTopRef} className="h-0 scroll-mt-[76px] lg:scroll-mt-[64px]" aria-hidden />
+          {/* Category filter — sticky under header */}
+          <div
+            className={cn(
+              "sticky top-[76px] lg:top-[64px] z-40 -mx-5 sm:-mx-8 lg:-mx-12",
+              "px-5 sm:px-8 lg:px-12 py-3 mb-12",
+              "bg-background/85 backdrop-blur-xl border-b border-border/40"
+            )}
+          >
+            <div className="flex flex-wrap gap-2 justify-center">
               {categories.map((cat) => (
                 <button
                   key={cat.key}
-                  onClick={() => setActiveCategory(cat.key)}
+                  onClick={() => handleSelect(cat.key)}
                   className={cn(
                     "px-5 py-2.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer",
                     activeCategory === cat.key
                       ? "bg-primary text-white"
-                      : "bg-muted text-foreground/50 hover:text-primary hover:bg-primary/10"
+                      : "bg-muted text-foreground/70 hover:text-primary hover:bg-primary/10"
                   )}
                 >
                   {cat.label}
                 </button>
               ))}
             </div>
-          </ScrollReveal>
+          </div>
 
           {/* Grid */}
           <div className="flex flex-col gap-5 max-w-5xl mx-auto">

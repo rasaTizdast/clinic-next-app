@@ -8,10 +8,10 @@ import { cn } from "@/lib/utils";
 
 const categories = [
   { key: "all", label: "همه خدمات" },
-  { key: "skin", label: "پوست" },
-  { key: "hair", label: "مو" },
-  { key: "face", label: "صورت" },
-  { key: "body", label: "بدن" },
+  { key: "filler-botox", label: "فیلر و بوتاکس" },
+  { key: "laser-women", label: "لیزر بانوان" },
+  { key: "laser-men", label: "لیزر آقایان" },
+  { key: "facial", label: "فیشیال" },
 ] as const;
 
 export function ServicesFilter() {
@@ -36,7 +36,7 @@ export function ServicesFilter() {
                 "active:scale-[0.97]",
                 active === cat.key
                   ? "bg-primary text-white shadow-lg shadow-primary/20"
-                  : "bg-muted/50 text-foreground/60 hover:text-foreground hover:bg-muted border border-transparent hover:border-border/50"
+                  : "bg-muted/50 text-foreground/70 hover:text-foreground hover:bg-muted border border-transparent hover:border-border/50"
               )}
             >
               {cat.label}
