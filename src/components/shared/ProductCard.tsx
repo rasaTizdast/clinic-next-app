@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft } from "lucide-react";
 import { formatPrice } from "@/lib/utils";
 import { Product } from "@/lib/types";
@@ -14,12 +15,13 @@ export function ProductCard({ product }: ProductCardProps) {
     <Link href={`/products/${product.slug}`} className="group block">
       <div className="rounded-2xl overflow-hidden bg-surface border border-border/30 hover:border-primary/15 hover:shadow-md transition-all duration-300 hover:-translate-y-0.5">
         {/* Image */}
-        <div className="aspect-[4/3] bg-muted/50 overflow-hidden">
-          <img
+        <div className="relative aspect-[4/3] bg-muted/50 overflow-hidden">
+          <Image
             src={product.image}
             alt={product.title}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-            loading="lazy"
+            fill
+            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+            className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
         </div>
 

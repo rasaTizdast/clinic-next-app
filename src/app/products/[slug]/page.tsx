@@ -39,8 +39,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
                   src={product.image}
                   alt={product.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                   className="object-cover"
-                  priority
+                  preload
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent" />
               </div>
