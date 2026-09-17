@@ -127,6 +127,29 @@ export const services: Service[] = [
     subcategory: "سایر",
   },
 
+  // ─── لیزر بانوان — سایر (پکیج‌ها) ───
+  {
+    id: "24",
+    slug: "w-full-body-laser",
+    title: "فول بادی",
+    description:
+      "همه نواحی اصلی بدن در یک جلسه واحد پوشش داده می‌شود؛ کامل‌ترین و مقرون‌به‌صرفه‌ترین انتخاب لیزر.",
+    price: 990000,
+    category: "laser-women",
+    subcategory: "سایر",
+    featured: true,
+  },
+  {
+    id: "25",
+    slug: "w-practical-laser",
+    title: "کاربردی",
+    description:
+      "ترکیبی هوشمندانه از پرتقاضاترین نواحی برای کسانی که همه نواحی بدن را نمی‌خواهند.",
+    price: 890000,
+    category: "laser-women",
+    subcategory: "سایر",
+  },
+
   // ─── لیزر بانوان — پا ───
   {
     id: "12",
@@ -255,27 +278,6 @@ export const services: Service[] = [
 
   // ─── لیزر بانوان — سایر ───
   {
-    id: "24",
-    slug: "w-full-body-laser",
-    title: "فول بادی",
-    description:
-      "همه نواحی اصلی بدن در یک جلسه واحد پوشش داده می‌شود؛ کامل‌ترین و مقرون‌به‌صرفه‌ترین انتخاب لیزر.",
-    price: 990000,
-    category: "laser-women",
-    subcategory: "سایر",
-    featured: true,
-  },
-  {
-    id: "25",
-    slug: "w-practical-laser",
-    title: "کاربردی",
-    description:
-      "ترکیبی هوشمندانه از پرتقاضاترین نواحی برای کسانی که همه نواحی بدن را نمی‌خواهند.",
-    price: 890000,
-    category: "laser-women",
-    subcategory: "سایر",
-  },
-  {
     id: "26",
     slug: "w-bikini-laser",
     title: "بیکینی",
@@ -314,6 +316,28 @@ export const services: Service[] = [
     price: 500000,
     fromPrice: true,
     category: "laser-women",
+    subcategory: "سایر",
+  },
+
+  // ─── لیزر آقایان — سایر (پکیج‌ها) ───
+  {
+    id: "47",
+    slug: "m-full-body-laser",
+    title: "فول بادی",
+    description:
+      "پوشش همه نواحی اصلی بدن آقایان در یک جلسه واحد؛ کامل‌ترین و اقتصادی‌ترین انتخاب.",
+    price: 1990000,
+    category: "laser-men",
+    subcategory: "سایر",
+  },
+  {
+    id: "48",
+    slug: "m-practical-laser",
+    title: "کاربردی",
+    description:
+      "ترکیبی از پرتقاضاترین نواحی برای آقایانی که به دنبال تمیزکاری عمومی هستند.",
+    price: 890000,
+    category: "laser-men",
     subcategory: "سایر",
   },
 
@@ -494,26 +518,6 @@ export const services: Service[] = [
   },
 
   // ─── لیزر آقایان — سایر ───
-  {
-    id: "47",
-    slug: "m-full-body-laser",
-    title: "فول بادی",
-    description:
-      "پوشش همه نواحی اصلی بدن آقایان در یک جلسه واحد؛ کامل‌ترین و اقتصادی‌ترین انتخاب.",
-    price: 1990000,
-    category: "laser-men",
-    subcategory: "سایر",
-  },
-  {
-    id: "48",
-    slug: "m-practical-laser",
-    title: "کاربردی",
-    description:
-      "ترکیبی از پرتقاضاترین نواحی برای آقایانی که به دنبال تمیزکاری عمومی هستند.",
-    price: 890000,
-    category: "laser-men",
-    subcategory: "سایر",
-  },
   {
     id: "49",
     slug: "m-bikini-basic-laser",
