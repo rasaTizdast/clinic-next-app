@@ -19,7 +19,7 @@ export const testimonials: Testimonial[] = [
     id: "3",
     name: "نیلوفر کریمی",
     text: "پاکسازی پوست صورتم را اینجا انجام دادم و پوستم خیلی شفاف و نرم شد. حتماً دوباره مراجعه می‌کنم.",
-    rating: 4,
+    rating: 5,
     avatar: "/avatars/niloufar.jpg",
   },
   {
