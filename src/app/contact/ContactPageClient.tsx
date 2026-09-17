@@ -14,7 +14,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "تلفن",
-    value: "۰۹۱۰۰۳۰۰۸۷۵",
+    value: "۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷",
     href: "tel:+989100300875",
   },
   {

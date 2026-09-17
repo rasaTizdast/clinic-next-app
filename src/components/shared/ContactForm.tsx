@@ -58,7 +58,7 @@ export function ContactForm() {
         label="شماره تماس"
         name="phone"
         type="tel"
-        placeholder="۰۹۱۰۰۳۰۰۸۷۵"
+        placeholder="۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷"
         error={errors.phone}
         required
       />

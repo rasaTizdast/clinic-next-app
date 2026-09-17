@@ -109,10 +109,10 @@ export function Header() {
           </div>
           <div className="flex items-center gap-4">
             <a
-              href="tel:+989121234567"
+              href="tel:+989100300875"
               className="flex items-center gap-2 text-xs font-semibold text-foreground/80 hover:text-primary transition-colors duration-200"
             >
-              <span>۰۹۱۰۰۳۰۰۸۷۵</span>
+              <span>۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷</span>
               <Phone className="h-3.5 w-3.5" />
             </a>
             <Link
@@ -200,7 +200,7 @@ export function Header() {
                 className="flex items-center gap-2 py-1 text-sm font-semibold text-primary"
               >
                 <Phone className="h-4 w-4" />
-                <span>۰۹۱۰۰۳۰۰۸۷۵</span>
+                <span>۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷</span>
               </a>
             </div>
           </nav>

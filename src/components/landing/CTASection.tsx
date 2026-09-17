@@ -38,7 +38,7 @@ export function CTASection() {
                   className="w-full gap-3 bg-primary text-white hover:bg-primary-light shadow-lg shadow-primary/20 btn-premium rounded-xl py-5 text-lg"
                 >
                   <Phone className="h-5 w-5" />
-                  <span className="font-bold">۰۹۱۰۰۳۰۰۸۷۵</span>
+                  <span className="font-bold">۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷</span>
                 </Button>
               </a>
               <Link href="/contact" className="w-full sm:w-auto">

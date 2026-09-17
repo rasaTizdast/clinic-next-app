@@ -65,7 +65,7 @@ export function Footer() {
               href="tel:+989100300875"
               className="text-sm text-foreground/70 font-light hover:text-primary transition-colors duration-200"
             >
-              ۰۹۱۰۰۳۰۰۸۷۵
+              ۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷
             </a>
           </div>
           <div className="flex items-center gap-3">
