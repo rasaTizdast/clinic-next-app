@@ -62,14 +62,8 @@ export function PackagesPageClient() {
 
             {/* Image column */}
             <ScrollReveal delay={100}>
-              <div className="relative rounded-2xl overflow-hidden bg-muted aspect-[4/3]">
-                <img
-                  src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&h=600&fit=crop"
-                  alt="پکیج‌های ویژه کلینیک"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent" />
+              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
+                <div className="w-36 h-36 rounded-full bg-primary/15 animate-pulse blur-xl" />
               </div>
             </ScrollReveal>
           </div>

@@ -16,17 +16,7 @@ export default function Home() {
         eyebrow="داستان ما"
         title="بیش از ۱۰ سال تجربه در زیبایی"
         description="کلینیک زیبایی باران با بیش از ۱۰ سال تجربه در زمینه خدمات زیبایی، پوست و مو، همواره در تلاش است تا بهترین خدمات را با بالاترین کیفیت به مراجعین ارائه دهد."
-      >
-        <div className="aspect-[4/3] rounded-2xl overflow-hidden relative">
-          <img
-            src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&h=450&fit=crop"
-            alt="تیم متخصصان کلینیک باران"
-            className="w-full h-full object-cover"
-            loading="lazy"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-foreground/5 to-transparent" />
-        </div>
-      </StoryChapter>
+      />
 
       <Suspense
         fallback={
