@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { Syringe, Zap, Sparkles, ArrowLeft } from "lucide-react";
 import { Badge } from "@/components/ui/Badge";
 import { formatAmount } from "@/lib/utils";
@@ -16,31 +17,27 @@ const iconMap: Record<string, React.ComponentType<{ className?: string }>> = {
 
 const categoryConfig: Record<
   Service["category"],
-  { label: string; iconBg: string; iconColor: string; badgeVariant: "accent" | "default" | "success" }
+  { label: string; iconBg: string; iconColor: string }
 > = {
   "filler-botox": {
     label: "فیلر و بوتاکس",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    badgeVariant: "accent",
   },
   "laser-women": {
     label: "لیزر بانوان",
     iconBg: "bg-success/10",
     iconColor: "text-success",
-    badgeVariant: "success",
   },
   "laser-men": {
     label: "لیزر آقایان",
     iconBg: "bg-foreground/5",
     iconColor: "text-foreground/60",
-    badgeVariant: "default",
   },
   facial: {
     label: "فیشیال",
     iconBg: "bg-primary/10",
     iconColor: "text-primary",
-    badgeVariant: "default",
   },
 };
 
@@ -58,7 +55,7 @@ export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
     <Link href={`/services/${service.slug}`} className="group block">
       <div
         className={cn(
-          "flex flex-col sm:flex-row items-stretch rounded-2xl overflow-hidden transition-all duration-300",
+          "flex flex-col lg:flex-row items-stretch rounded-2xl overflow-hidden transition-all duration-300 lg:h-[360px]",
           "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
           isDark
             ? "bg-surface border border-border/40 hover:border-primary/20 hover:shadow-lg"
@@ -66,24 +63,36 @@ export function ServiceCard({ service, variant = "light" }: ServiceCardProps) {
           "hover:-translate-y-0.5"
         )}
       >
-        {/* Icon area */}
+        {/* Image area — 4:3 */}
         <div className={cn(
-          "relative sm:w-56 lg:w-64 flex-shrink-0 flex items-center justify-center min-h-[140px] sm:min-h-0",
-          isDark ? "bg-muted/50" : "bg-muted/50"
+          "relative overflow-hidden shrink-0 w-full max-w-[420px] aspect-[4/3] bg-muted/50",
+          "lg:w-auto lg:max-w-none"
         )}>
-          <div className={cn(
-            "p-5 rounded-xl transition-transform duration-300 group-hover:scale-105",
-            config.iconBg
-          )}>
-            <Icon className={cn("h-10 w-10", config.iconColor)} />
-          </div>
+          {service.image ? (
+            <Image
+              src={service.image}
+              alt={service.title}
+              fill
+              sizes="(min-width: 1024px) 480px, min(420px, 100vw)"
+              className="object-cover transition-transform duration-500 group-hover:scale-105 [transition-timing-function:cubic-bezier(0.16,1,0.3,1)]"
+            />
+          ) : (
+            <div className="absolute inset-0 flex items-center justify-center">
+              <div className={cn(
+                "p-5 rounded-xl transition-transform duration-300 group-hover:scale-105",
+                config.iconBg
+              )}>
+                <Icon className={cn("h-10 w-10", config.iconColor)} />
+              </div>
+            </div>
+          )}
           <div className="absolute top-3 right-3">
-            <Badge variant={config.badgeVariant}>{config.label}</Badge>
+            <Badge className="bg-foreground text-background shadow-pill">{config.label}</Badge>
           </div>
         </div>
 
         {/* Content */}
-        <div className="flex-1 p-5 sm:p-6 flex flex-col justify-between">
+        <div className="flex-1 min-w-0 p-5 sm:p-6 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2.5 mb-1.5">
               <h3 className={cn(

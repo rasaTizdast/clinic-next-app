@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowLeft, ArrowRight, Tag } from "lucide-react";
 import { getServiceBySlug } from "@/data";
 import { Button } from "@/components/ui/Button";
@@ -88,9 +89,20 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
               {/* Visual */}
               <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-primary/10 to-primary/5 border border-border/20">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="w-28 h-28 rounded-full bg-primary/15 animate-pulse blur-xl" />
-                </div>
+                {service.image ? (
+                  <Image
+                    src={service.image}
+                    alt={service.title}
+                    fill
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    className="object-cover"
+                    priority
+                  />
+                ) : (
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="w-28 h-28 rounded-full bg-primary/15 animate-pulse blur-xl" />
+                  </div>
+                )}
               </div>
             </div>
           </ScrollReveal>

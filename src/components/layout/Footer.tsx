@@ -5,10 +5,10 @@ import { MapPin, Phone, Clock } from "lucide-react";
 
 const footerLinks = {
   services: [
-    { href: "/services/botox", label: "بوتاکس" },
-    { href: "/services/laser-hair-removal", label: "لیزر موهای زائد" },
-    { href: "/services/facial", label: "پاکسازی پوست" },
-    { href: "/services/prp", label: "پی\u200cآرپی" },
+    { href: "/services/botox-face", label: "بوتاکس" },
+    { href: "/services/w-full-body-laser", label: "لیزر موهای زائد" },
+    { href: "/services/skin-cleansing", label: "پاکسازی پوست" },
+    { href: "/services/lip-filler", label: "فیلر لب" },
   ],
   company: [
     { href: "/about", label: "درباره ما" },

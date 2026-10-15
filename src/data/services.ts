@@ -1,10 +1,18 @@
 import { Service } from "@/lib/types";
 
+const IMG = {
+  filler: "/images/services/filler%20and%20botax",
+  women: "/images/services/female%20laser",
+  men: "/images/services/male-laser",
+  facial: "/images/services/facial",
+} as const;
+
 export const services: Service[] = [
   // ─── فیلر و بوتاکس — صورت ───
   {
     id: "1",
     slug: "botox-face",
+    image: `${IMG.filler}/facial-botax.jpeg`,
     title: "بوتاکس صورت",
     description:
       "با تزریق دقیق در عضلات هدف، خطوط اخم و چروک پیشانی و دور چشم تا چند ماه کاهش می‌یابد و صورت ظاهری آرام‌تر و جوان‌تر پیدا می‌کند.",
@@ -16,6 +24,7 @@ export const services: Service[] = [
   {
     id: "2",
     slug: "botox-migraine",
+    image: `${IMG.filler}/migraine-botax.jpeg`,
     title: "بوتاکس میگرن",
     description:
       "تزریق در نقاط مشخص سر و گردن، سیگنال‌های دردی را تعدیل می‌کند؛ در نتیجه دفعات و شدت حملات میگرن کمتر می‌شود.",
@@ -26,6 +35,7 @@ export const services: Service[] = [
   {
     id: "3",
     slug: "botox-gummy-smile",
+    image: `${IMG.filler}/gummy-smile-botox.jpeg`,
     title: "بوتاکس لبخند لثه",
     description:
       "با کنترل حرکت عضلات بالابر لب، هنگام خنده نمایش لثه کاهش می‌یابد و لبخند متعادل‌تر و دلپذیرتر دیده می‌شود.",
@@ -36,6 +46,7 @@ export const services: Service[] = [
   {
     id: "4",
     slug: "lip-filler",
+    image: `${IMG.filler}/lip-filler.jpeg`,
     title: "فیلر لب",
     description:
       "حجم و فرم لب‌ها با تزریق مواد سازگار با بدن اصلاح می‌شود؛ میزان حجم‌دهی متناسب با آناتومی و سلیقه شما تعیین می‌شود.",
@@ -48,6 +59,7 @@ export const services: Service[] = [
   {
     id: "5",
     slug: "face-contour-filler",
+    image: `${IMG.filler}/face-contour-filler.jpeg`,
     title: "فیلر گونه، چانه، زاویه",
     description:
       "کنتور و تناسب اجزای صورت با حجم‌دهی نقطه‌ای بازسازی می‌شود؛ از برجسته‌کردن گونه تا مشخص‌کردن زاویه فک، بر اساس نیاز شما.",
@@ -59,6 +71,7 @@ export const services: Service[] = [
   {
     id: "6",
     slug: "face-mesotherapy",
+    image: `${IMG.filler}/face-mesotherapy.jpeg`,
     title: "مزوتراپی صورت و جوانسازی",
     description:
       "ترکیبات ویتامینی و مغذی مستقیماً به لایه‌های میانی پوست می‌رسد تا شادابی، طراوت و کیفیت کلی پوست افزایش یابد.",
@@ -72,6 +85,7 @@ export const services: Service[] = [
   {
     id: "7",
     slug: "hair-filler",
+    image: `${IMG.filler}/hair-filler.jpeg`,
     title: "فیلر مو",
     description:
       "مواد تقویتی و حجیم‌ساز در نواحی کم‌پشت تزریق می‌شود تا تراکم ظاهری مو بیشتر شده و نواحی خالی کمتر دیده شوند.",
@@ -83,6 +97,7 @@ export const services: Service[] = [
   {
     id: "8",
     slug: "hair-mesotherapy",
+    image: `${IMG.filler}/hair-mesotherapy.jpeg`,
     title: "مزوتراپی مو",
     description:
       "کوکتل ویتامین و مواد معدنی مستقیماً به ریشه مو می‌رسد؛ ریزش کم می‌شود، تارهای ضعیف قوی‌تر شده و رشد مو بهبود می‌یابد.",
@@ -95,6 +110,7 @@ export const services: Service[] = [
   {
     id: "9",
     slug: "underarm-botox",
+    image: `${IMG.filler}/armpit-botax.jpeg`,
     title: "بوتاکس زیر بغل",
     description:
       "فعالیت غدد عرق این ناحیه برای چند ماه کاهش می‌یابد و مشکل تعریق زیاد، رطوبت و بوی نامطبوع را برطرف می‌کند.",
@@ -105,6 +121,7 @@ export const services: Service[] = [
   {
     id: "10",
     slug: "body-filler",
+    image: `${IMG.filler}/body-filler.jpeg`,
     title: "فیلر بادی",
     description:
       "اصلاح فرم و افزایش حجم در نواحی مختلف بدن؛ میزان تزریق بر اساس آناتومی و خواسته شما مشخص می‌شود.",
@@ -118,6 +135,7 @@ export const services: Service[] = [
   {
     id: "11",
     slug: "mole-removal",
+    image: `${IMG.filler}/mole-removal.jpeg`,
     title: "خالبرداری",
     description:
       "خال‌های برجسته و مسطح پس از بررسی پزشک به‌صورت امن برداشته می‌شوند؛ جای زخم حداقلی دارد و دوره مراقبت کوتاهی است.",
@@ -131,6 +149,7 @@ export const services: Service[] = [
   {
     id: "24",
     slug: "w-full-body-laser",
+    image: `${IMG.women}/full-body.jpeg`,
     title: "فول بادی",
     description:
       "همه نواحی اصلی بدن در یک جلسه واحد پوشش داده می‌شود؛ کامل‌ترین و مقرون‌به‌صرفه‌ترین انتخاب لیزر.",
@@ -142,6 +161,7 @@ export const services: Service[] = [
   {
     id: "25",
     slug: "w-practical-laser",
+    image: `${IMG.women}/practical-laser.jpeg`,
     title: "کاربردی",
     description:
       "ترکیبی هوشمندانه از پرتقاضاترین نواحی برای کسانی که همه نواحی بدن را نمی‌خواهند.",
@@ -154,6 +174,7 @@ export const services: Service[] = [
   {
     id: "12",
     slug: "w-full-leg-laser",
+    image: `${IMG.women}/full-leg.jpeg`,
     title: "پا کامل",
     description:
       "تمام سطح پا از بالای ران تا مچ در یک جلسه پوشش داده می‌شود؛ با جلسات منظم رویش مو کمتر و نازک‌تر می‌شود.",
@@ -164,6 +185,7 @@ export const services: Service[] = [
   {
     id: "13",
     slug: "w-thigh-laser",
+    image: `${IMG.women}/tigh-laser.jpeg`,
     title: "ران",
     description:
       "لیزر موهای زائد ناحیه ران؛ پوستی صاف‌تر بدون نیاز به اصلاح مکرر نتیجه جلسات پیوسته است.",
@@ -174,6 +196,7 @@ export const services: Service[] = [
   {
     id: "14",
     slug: "w-calf-laser",
+    image: `${IMG.women}/calf-laser.jpeg`,
     title: "ساق پا",
     description:
       "لیزر موهای زائد ناحیه ساق پا؛ مناسب برای پوست نرم و صاف بدون خطر بریدگی و تحریک ناشی اصلاح.",
@@ -186,6 +209,7 @@ export const services: Service[] = [
   {
     id: "15",
     slug: "w-full-abdomen-laser",
+    image: `${IMG.women}/abdomen-laser.jpeg`,
     title: "شکم کامل",
     description:
       "تمام ناحیه شکم لیزر می‌شود؛ انتخاب رایج برای پوستی یکدست و آماده تابستان.",
@@ -196,6 +220,7 @@ export const services: Service[] = [
   {
     id: "16",
     slug: "w-full-back-laser",
+    image: `${IMG.women}/full-back-laser.jpeg`,
     title: "کمر کامل",
     description:
       "تمام ناحیه کمر از شانه تا پایین کمر پوشش داده می‌شود تا پوست این ناحیه کاملاً صاف بماند.",
@@ -206,6 +231,7 @@ export const services: Service[] = [
   {
     id: "17",
     slug: "w-lower-back-laser",
+    image: `${IMG.women}/lower-back-laser.jpeg`,
     title: "گودی کمر",
     description:
       "لیزر نقطه‌ای گودی کمر برای تمیزی بیشتر این ناحیه حساس هنگام پوشیدن لباس‌های کمرباز.",
@@ -216,6 +242,7 @@ export const services: Service[] = [
   {
     id: "18",
     slug: "w-naval-line-laser",
+    image: `${IMG.women}/naval-line.jpeg`,
     title: "خط ناف",
     description:
       "خط میانی ناف که اغلب پرپشت است، لیزر می‌شود تا ناحیه شکم یکدست‌تر دیده شود.",
@@ -226,6 +253,7 @@ export const services: Service[] = [
   {
     id: "19",
     slug: "w-buttocks-laser",
+    image: `${IMG.women}/buttocks-laser.jpeg`,
     title: "روی باسن",
     description:
       "لیزر سطح رویی باسن با تنظیمات مناسب پوست این ناحیه؛ تمیزی و لطافت طولانی‌مدت.",
@@ -236,6 +264,7 @@ export const services: Service[] = [
   {
     id: "20",
     slug: "w-underarm-laser",
+    image: `${IMG.women}/underarm-laser.jpeg`,
     title: "زیربغل",
     description:
       "محبوب‌ترین ناحیه لیزر؛ علاوه بر حذف مو، تیرگی سطحی زیربغل نیز طی جلسات بهتر می‌شود.",
@@ -248,6 +277,7 @@ export const services: Service[] = [
   {
     id: "21",
     slug: "w-full-arm-laser",
+    image: `${IMG.women}/full-arm-laser.jpeg`,
     title: "دست کامل",
     description:
       "از شانه تا مچ یکجا لیزر می‌شود؛ اقتصادی‌تر از رزرو جداگانه بازو و ساعد.",
@@ -258,6 +288,7 @@ export const services: Service[] = [
   {
     id: "22",
     slug: "w-forearm-laser",
+    image: `${IMG.women}/forearm-laser.jpeg`,
     title: "ساق دست",
     description:
       "لیزر ناحیه ساعد از آرنج تا مچ برای پوستی صاف در نواحی نمایان دست.",
@@ -268,6 +299,7 @@ export const services: Service[] = [
   {
     id: "23",
     slug: "w-upper-arm-laser",
+    image: `${IMG.women}/upper-arm-laser.jpeg`,
     title: "بازو",
     description:
       "لیزر ناحیه بازو از شانه تا آرنج؛ مناسب برای استفاده راحت با لباس آستین‌کوتاه.",
@@ -280,6 +312,7 @@ export const services: Service[] = [
   {
     id: "26",
     slug: "w-bikini-laser",
+    image: `${IMG.women}/bikini-laser.jpeg`,
     title: "بیکینی",
     description:
       "لیزر ناحیه بیکینی با رعایت کامل بهداشت و حریم خصوصی؛ تمیزی دائمی بدون تحریک پوست.",
@@ -290,6 +323,7 @@ export const services: Service[] = [
   {
     id: "27",
     slug: "w-face-laser",
+    image: `${IMG.women}/face-laser.jpeg`,
     title: "صورت",
     description:
       "نواحی صورت مانند لب بالا، چانه و خط فک با تنظیمات ملایم مناسب پوست حساس صورت لیزر می‌شود.",
@@ -300,6 +334,7 @@ export const services: Service[] = [
   {
     id: "28",
     slug: "w-eyebrow-tattoo-removal",
+    image: `${IMG.women}/eyebrow-tattoo-removal-laser.jpeg`,
     title: "لیزر تتو ابرو",
     description:
       "جوهر تتوی ابرو به‌تدریج شکسته و محو می‌شود؛ معمولاً چند جلسه با فاصله زمانی مشخص لازم است.",
@@ -310,6 +345,7 @@ export const services: Service[] = [
   {
     id: "29",
     slug: "w-body-tattoo-removal",
+    image: `${IMG.women}/body-tattoo-removal-laser.jpeg`,
     title: "لیزر تتو بدن",
     description:
       "بر اساس عمق، رنگ و قدمت جوهر، تتوهای بدن طی جلسات متوالی کم‌رنگ و محو می‌شوند.",
@@ -323,6 +359,7 @@ export const services: Service[] = [
   {
     id: "47",
     slug: "m-full-body-laser",
+    image: `${IMG.men}/full-body-laser.jpeg`,
     title: "فول بادی",
     description:
       "پوشش همه نواحی اصلی بدن آقایان در یک جلسه واحد؛ کامل‌ترین و اقتصادی‌ترین انتخاب.",
@@ -333,6 +370,7 @@ export const services: Service[] = [
   {
     id: "48",
     slug: "m-practical-laser",
+    image: `${IMG.men}/practical-laser.jpeg`,
     title: "کاربردی",
     description:
       "ترکیبی از پرتقاضاترین نواحی برای آقایانی که به دنبال تمیزکاری عمومی هستند.",
@@ -345,6 +383,7 @@ export const services: Service[] = [
   {
     id: "30",
     slug: "m-full-leg-laser",
+    image: `${IMG.men}/full-leg-laser.jpeg`,
     title: "پا کامل",
     description:
       "تمام سطح پا از ران تا مچ با تنظیمات متناسب با پوست آقایان لیزر می‌شود.",
@@ -355,6 +394,7 @@ export const services: Service[] = [
   {
     id: "31",
     slug: "m-buttocks-laser",
+    image: `${IMG.men}/buttocks-laser.jpeg`,
     title: "باسن",
     description:
       "لیزر ناحیه باسن برای بهداشت بهتر، تعریق کمتر و پوستی صاف‌تر در این ناحیه.",
@@ -365,6 +405,7 @@ export const services: Service[] = [
   {
     id: "32",
     slug: "m-calf-laser",
+    image: `${IMG.men}/calf-laser.jpeg`,
     title: "ساق پا",
     description:
       "لیزر ناحیه ساق پا؛ حذف موها بدون خارش و تحریک ناشی از اصلاح مکرر.",
@@ -397,6 +438,7 @@ export const services: Service[] = [
   {
     id: "35",
     slug: "m-full-abdomen-laser",
+    image: `${IMG.men}/full-abdomen-laser.jpeg`,
     title: "شکم کامل",
     description:
       "لیزر تمام ناحیه شکم برای پوستی صاف؛ خطوط مویی پراکنده نیز حذف می‌شوند.",
@@ -407,6 +449,7 @@ export const services: Service[] = [
   {
     id: "36",
     slug: "m-full-back-laser",
+    image: `${IMG.men}/full-back-laser.jpeg`,
     title: "کمر کامل",
     description:
       "تمام ناحیه کمر پوشش داده می‌شود؛ نواحی پشت که دسترسی به آن‌ها سخت است یکجا حل می‌شود.",
@@ -417,6 +460,7 @@ export const services: Service[] = [
   {
     id: "37",
     slug: "m-lower-back-laser",
+    image: `${IMG.men}/lower-back-laser.jpeg`,
     title: "گودی کمر",
     description:
       "لیزر نقطه‌ای گودی کمر برای تمیزی این ناحیه در لباس‌ها و ورزش.",
@@ -427,6 +471,7 @@ export const services: Service[] = [
   {
     id: "38",
     slug: "m-naval-line-laser",
+    image: `${IMG.men}/naval-line-laser.jpeg`,
     title: "خط ناف",
     description:
       "حذف خط مویی وسط شکم برای یکدست‌تر شدن ظاهر ناحیه بالای شکم.",
@@ -437,6 +482,7 @@ export const services: Service[] = [
   {
     id: "39",
     slug: "m-buttocks-top-laser",
+    image: `${IMG.men}/buttocks-top-laser.jpeg`,
     title: "روی باسن",
     description:
       "لیزر سطح رویی باسن با تنظیمات مناسب؛ تمیزی و بهداشت بیشتر این ناحیه.",
@@ -447,6 +493,7 @@ export const services: Service[] = [
   {
     id: "40",
     slug: "m-underarm-laser",
+    image: `${IMG.men}/underarm-laser.jpeg`,
     title: "زیربغل",
     description:
       "حذف موهای زیربغل همراه با کاهش تعریق و بهبود بوی نامطبوع این ناحیه.",
@@ -457,6 +504,7 @@ export const services: Service[] = [
   {
     id: "41",
     slug: "m-chest-laser",
+    image: `${IMG.men}/chest-laser.jpeg`,
     title: "سینه",
     description:
       "لیزر ناحیه سینه برای پوستی صاف‌تر؛ انتخاب رایج ورزشکاران و علاقه‌مندان به ظاهر تمیز.",
@@ -467,6 +515,7 @@ export const services: Service[] = [
   {
     id: "42",
     slug: "m-chest-abdomen-laser",
+    image: `${IMG.men}/chest-abdomen-laser.jpeg`,
     title: "سینه و شکم",
     description:
       "هر دو ناحیه سینه و شکم یکجا لیزر می‌شود؛ اقتصادی‌تر از رزرو دو ناحیه جداگانه.",
@@ -477,6 +526,7 @@ export const services: Service[] = [
   {
     id: "43",
     slug: "m-full-back-rear-laser",
+    image: `${IMG.men}/full-back-rear-laser.jpeg`,
     title: "پشت کامل",
     description:
       "تمام ناحیه پشت از شانه‌ها تا کمر پوشش داده می‌شود؛ کامل‌ترین گزینه برای پشت بدون مو.",
@@ -489,6 +539,7 @@ export const services: Service[] = [
   {
     id: "44",
     slug: "m-full-arm-laser",
+    image: `${IMG.men}/full-arm-laser.jpeg`,
     title: "دست کامل",
     description:
       "از شانه تا مچ یکجا لیزر می‌شود؛ پوشش کامل دست‌ها با هزینه کمتر نسبت به رزرو تفکیکی.",
@@ -499,6 +550,7 @@ export const services: Service[] = [
   {
     id: "45",
     slug: "m-forearm-laser",
+    image: `${IMG.men}/forearm-laser.jpeg`,
     title: "ساق دست",
     description:
       "لیزر ناحیه ساعد از آرنج تا مچ؛ مناسب برای نواحی نمایان در لباس روزمره.",
@@ -509,6 +561,7 @@ export const services: Service[] = [
   {
     id: "46",
     slug: "m-upper-arm-laser",
+    image: `${IMG.men}/upper-arm-laser.jpeg`,
     title: "بازو",
     description:
       "لیزر ناحیه بازو از شانه تا آرنج برای ظاهری تمیزتر در لباس‌های آستین‌کوتاه.",
@@ -531,6 +584,7 @@ export const services: Service[] = [
   {
     id: "50",
     slug: "m-face-laser",
+    image: `${IMG.men}/face-laser.jpeg`,
     title: "صورت",
     description:
       "لیزر نواحی صورت مانند خط ریش گونه و گردن برای اصلاح تمیزتر و پوست صاف‌تر.",
@@ -541,6 +595,7 @@ export const services: Service[] = [
   {
     id: "51",
     slug: "m-eyebrow-tattoo-removal",
+    image: `${IMG.men}/eyebrow-tattoo-removal.jpeg`,
     title: "لیزر تتو ابرو",
     description:
       "حذف تدریجی جوهر تتوی ابرو طی چند جلسه فاصله‌دار؛ ایمن برای پوست اطراف چشم.",
@@ -551,6 +606,7 @@ export const services: Service[] = [
   {
     id: "52",
     slug: "m-body-tattoo-removal",
+    image: `${IMG.men}/body-tattoo-removal-laser.jpeg`,
     title: "لیزر تتو بدن",
     description:
       "محو تدریجی تتوهای بدن بر اساس عمق و رنگ جوهر؛ تعداد جلسات پس از مشاوره مشخص می‌شود.",
@@ -562,6 +618,7 @@ export const services: Service[] = [
   {
     id: "53",
     slug: "m-neck-laser",
+    image: `${IMG.men}/neck-laser.jpeg`,
     title: "گردن",
     description:
       "لیزر ناحیه جلوی گردن برای تمیزی بیشتر و اصلاح راحت‌تر این ناحیه حساس.",
@@ -572,6 +629,7 @@ export const services: Service[] = [
   {
     id: "54",
     slug: "m-back-neck-laser",
+    image: `${IMG.men}/back-neck-laser.jpeg`,
     title: "پشت گردن",
     description:
       "لیزر ناحیه پشت گردن و خط مو؛ حذف موهایی که در مدل‌های کوتاه مو نمایان هستند.",
@@ -584,6 +642,7 @@ export const services: Service[] = [
   {
     id: "55",
     slug: "skin-cleansing",
+    image: `${IMG.facial}/skin-cleansing.jpeg`,
     title: "پاکسازی ابرسانی",
     description:
       "پاکسازی عمیق منافذ، خارج‌کردن جوش‌های سرسیاه و آبرسانی پوست در یک جلسه کامل مراقبتی.",
@@ -594,6 +653,7 @@ export const services: Service[] = [
   {
     id: "56",
     slug: "plagen-therapy",
+    image: `${IMG.facial}/pelagen-therapy.jpeg`,
     title: "پلاژن تراپی",
     description:
       "با تحریک تولید کلاژن، سفتی و کشش پوست بهبود می‌یابد و افتادگی ملایم اصلاح می‌شود.",
@@ -604,6 +664,7 @@ export const services: Service[] = [
   {
     id: "57",
     slug: "carboxy-face-therapy",
+    image: `${IMG.facial}/carboxy-face-therapy.jpeg`,
     title: "کربوکسی تراپی صورت",
     description:
       "با افزایش خونرسانی و اکسیژن‌رسانی، رنگ پوست روشن‌تر شده و چاله‌ها و جای جوش بهتر می‌شوند.",
@@ -615,6 +676,7 @@ export const services: Service[] = [
   {
     id: "58",
     slug: "carboxy-eye-therapy",
+    image: `${IMG.facial}/carboxy-eye-therapy.jpeg`,
     title: "کربوکسی تراپی دور چشم",
     description:
       "گردش خون ناحیه حساس زیر چشم بهبود می‌یابد تا تیرگی و گودی کم‌رنگ‌تر دیده شود.",
@@ -625,6 +687,7 @@ export const services: Service[] = [
   {
     id: "59",
     slug: "mesonidling-face",
+    image: `${IMG.facial}/mesonidling-face.jpeg`,
     title: "مزونیدلینگ صورت",
     description:
       "میکروسوزن‌های بسیار ریز فرآیند ترمیم طبیعی و ساخت کلاژن پوست را فعال می‌کنند؛ مؤثر برای جای جوش و منافذ باز.",
@@ -635,6 +698,7 @@ export const services: Service[] = [
   {
     id: "60",
     slug: "mesonidling-eyes",
+    image: `${IMG.facial}/mesonidling-eyes.jpeg`,
     title: "مزونیدلینگ دور چشم",
     description:
       "نسخه ملایم‌تر مخصوص پوست نازک دور چشم؛ خطوط ریز و شروع افتادگی را بهبود می‌دهد.",
@@ -645,6 +709,7 @@ export const services: Service[] = [
   {
     id: "61",
     slug: "peptide-therapy",
+    image: `${IMG.facial}/peptide-therapy.jpeg`,
     title: "پیتاید تراپی",
     description:
       "پپتیدها پیام‌رسان ترمیم پوست‌اند؛ تغذیه عمقی، کاهش خطوط ریز و شادابی بیشتر حاصل می‌شود.",
@@ -655,6 +720,7 @@ export const services: Service[] = [
   {
     id: "62",
     slug: "acid-therapy",
+    image: `${IMG.facial}/acid-therapy.jpeg`,
     title: "اسید تراپی",
     description:
       "لایه سطحی پوست به‌صورت کنترل‌شده نوسازی می‌شود تا جای جوش، لک و کدری کاهش یابد و پوست روشن‌تر شود.",

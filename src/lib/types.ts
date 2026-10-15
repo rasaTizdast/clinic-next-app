@@ -13,6 +13,7 @@ export interface Service {
   fromPrice?: boolean;
   category: ServiceCategory;
   subcategory: string;
+  image?: string;
   featured?: boolean;
 }
 
