@@ -10,7 +10,7 @@ export function HeroSection() {
       {/* Background image with Ken Burns effect */}
       <div className="absolute inset-0 overflow-hidden">
         <Image
-          src="/images/Hero_section_bg.png"
+          src="/images/Hero_section_bg.webp"
           alt=""
           fill
           preload
