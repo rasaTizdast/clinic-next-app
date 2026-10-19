@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/Badge";
 import { formatAmount } from "@/lib/utils";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
+
 const categoryLabels: Record<string, string> = {
   "filler-botox": "فیلر و بوتاکس",
   "laser-women": "لیزر بانوان",
