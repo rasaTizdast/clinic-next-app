@@ -149,7 +149,7 @@ export const services: Service[] = [
   {
     id: "24",
     slug: "w-full-body-laser",
-    image: `${IMG.women}/full-body.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "فول بادی",
     description:
       "همه نواحی اصلی بدن در یک جلسه واحد پوشش داده می‌شود؛ کامل‌ترین و مقرون‌به‌صرفه‌ترین انتخاب لیزر.",
@@ -161,7 +161,7 @@ export const services: Service[] = [
   {
     id: "25",
     slug: "w-practical-laser",
-    image: `${IMG.women}/practical-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "کاربردی",
     description:
       "ترکیبی هوشمندانه از پرتقاضاترین نواحی برای کسانی که همه نواحی بدن را نمی‌خواهند.",
@@ -174,7 +174,7 @@ export const services: Service[] = [
   {
     id: "12",
     slug: "w-full-leg-laser",
-    image: `${IMG.women}/full-leg.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "پا کامل",
     description:
       "تمام سطح پا از بالای ران تا مچ در یک جلسه پوشش داده می‌شود؛ با جلسات منظم رویش مو کمتر و نازک‌تر می‌شود.",
@@ -185,7 +185,7 @@ export const services: Service[] = [
   {
     id: "13",
     slug: "w-thigh-laser",
-    image: `${IMG.women}/tigh-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "ران",
     description:
       "لیزر موهای زائد ناحیه ران؛ پوستی صاف‌تر بدون نیاز به اصلاح مکرر نتیجه جلسات پیوسته است.",
@@ -196,7 +196,7 @@ export const services: Service[] = [
   {
     id: "14",
     slug: "w-calf-laser",
-    image: `${IMG.women}/calf-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "ساق پا",
     description:
       "لیزر موهای زائد ناحیه ساق پا؛ مناسب برای پوست نرم و صاف بدون خطر بریدگی و تحریک ناشی اصلاح.",
@@ -253,7 +253,7 @@ export const services: Service[] = [
   {
     id: "19",
     slug: "w-buttocks-laser",
-    image: `${IMG.women}/buttocks-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "روی باسن",
     description:
       "لیزر سطح رویی باسن با تنظیمات مناسب پوست این ناحیه؛ تمیزی و لطافت طولانی‌مدت.",
@@ -312,7 +312,7 @@ export const services: Service[] = [
   {
     id: "26",
     slug: "w-bikini-laser",
-    image: `${IMG.women}/bikini-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "بیکینی",
     description:
       "لیزر ناحیه بیکینی با رعایت کامل بهداشت و حریم خصوصی؛ تمیزی دائمی بدون تحریک پوست.",
@@ -482,7 +482,7 @@ export const services: Service[] = [
   {
     id: "39",
     slug: "m-buttocks-top-laser",
-    image: `${IMG.men}/buttocks-top-laser.jpeg`,
+    image: "/images/services/soprano%20titanium%20laser.jpg",
     title: "روی باسن",
     description:
       "لیزر سطح رویی باسن با تنظیمات مناسب؛ تمیزی و بهداشت بیشتر این ناحیه.",
