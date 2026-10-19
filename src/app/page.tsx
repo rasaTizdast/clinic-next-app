@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { HeroSection } from "@/components/landing/HeroSection";
 import { StoryChapter } from "@/components/landing/StoryChapter";
 import { ServicesPreview } from "@/components/landing/ServicesPreview";
@@ -16,7 +17,18 @@ export default function Home() {
         eyebrow="داستان ما"
         title="بیش از ۱۰ سال تجربه در زیبایی"
         description="کلینیک زیبایی باران با بیش از ۱۰ سال تجربه در زمینه خدمات زیبایی، پوست و مو، همواره در تلاش است تا بهترین خدمات را با بالاترین کیفیت به مراجعین ارائه دهد."
-      />
+      >
+        <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gradient-to-br from-muted to-border">
+          <Image
+            src="/images/Banner_Aesthetic.jpg"
+            alt="داستان ما — کلینیک زیبایی باران"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            quality={100}
+            className="object-cover"
+          />
+        </div>
+      </StoryChapter>
 
       <Suspense
         fallback={

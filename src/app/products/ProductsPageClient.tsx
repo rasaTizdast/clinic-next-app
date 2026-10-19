@@ -1,6 +1,7 @@
 "use client";
 
 import { getProducts } from "@/data";
+import Image from "next/image";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -36,8 +37,16 @@ export function ProductsPageClient() {
 
             {/* Image column */}
             <ScrollReveal delay={100}>
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                <div className="w-36 h-36 rounded-full bg-primary/15 animate-pulse blur-xl" />
+              <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
+                <Image
+                  src="/images/products-hero-image.png"
+                  alt="محصولات مراقبت از پوست کلینیک باران"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={100}
+                  preload
+                  className="object-cover"
+                />
               </div>
             </ScrollReveal>
           </div>

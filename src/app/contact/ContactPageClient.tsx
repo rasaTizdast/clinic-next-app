@@ -1,6 +1,7 @@
 "use client";
 
 import { MapPin, Phone, Clock } from "lucide-react";
+import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
@@ -55,7 +56,15 @@ export function ContactPageClient() {
             {/* Image column */}
             <ScrollReveal delay={100}>
               <div className="relative rounded-2xl overflow-hidden bg-muted aspect-4/3">
-                {/* Image will be added here */}
+                <Image
+                  src="/images/contact-hero-image.png"
+                  alt="تماس با کلینیک باران"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={100}
+                  preload
+                  className="object-cover"
+                />
                 <div className="absolute inset-0 bg-linear-to-t from-foreground/5 to-transparent" />
               </div>
             </ScrollReveal>

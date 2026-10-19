@@ -1,6 +1,7 @@
 "use client";
 
 import { Suspense } from "react";
+import Image from "next/image";
 import { getTeam } from "@/data";
 import { StoryChapter } from "@/components/landing/StoryChapter";
 import { TeamMember } from "@/components/shared/TeamMember";
@@ -59,8 +60,16 @@ export function AboutPageClient() {
 
             {/* Image column */}
             <ScrollReveal delay={100}>
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                <div className="w-36 h-36 rounded-full bg-primary/15 animate-pulse blur-xl" />
+              <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
+                <Image
+                  src="/images/about-hero-image.jpeg"
+                  alt="درباره کلینیک باران"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={100}
+                  preload
+                  className="object-cover"
+                />
               </div>
             </ScrollReveal>
           </div>
@@ -91,8 +100,15 @@ export function AboutPageClient() {
         description="ما باور داریم که زیبایی تنها ظاهر نیست، بلکه اعتماد به نفسی است که از درون می‌آید."
         reverse
       >
-        <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
-          <div className="w-36 h-36 rounded-full bg-primary/15 animate-pulse blur-xl" />
+        <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
+          <Image
+            src="/images/Banner_Aesthetic.jpg"
+            alt="چشم‌انداز ما — کلینیک زیبایی باران"
+            fill
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            quality={100}
+            className="object-cover"
+          />
         </div>
       </StoryChapter>
 

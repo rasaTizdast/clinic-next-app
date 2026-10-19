@@ -1,6 +1,7 @@
 "use client";
 
 import { getPackages } from "@/data";
+import Image from "next/image";
 import { PackageCard } from "@/components/shared/PackageCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useState, useRef } from "react";
@@ -62,8 +63,16 @@ export function PackagesPageClient() {
 
             {/* Image column */}
             <ScrollReveal delay={100}>
-              <div className="aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative overflow-hidden">
-                <div className="w-36 h-36 rounded-full bg-primary/15 animate-pulse blur-xl" />
+              <div className="relative aspect-[4/3] rounded-2xl bg-gradient-to-br from-primary/10 to-primary/5 overflow-hidden">
+                <Image
+                  src="/images/packages-hero-image.png"
+                  alt="پکیج‌های ویژه کلینیک باران"
+                  fill
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={100}
+                  preload
+                  className="object-cover"
+                />
               </div>
             </ScrollReveal>
           </div>
