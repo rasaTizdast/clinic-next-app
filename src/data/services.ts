@@ -153,7 +153,7 @@ export const services: Service[] = [
     title: "فول بادی",
     description:
       "همه نواحی اصلی بدن در یک جلسه واحد پوشش داده می‌شود؛ کامل‌ترین و مقرون‌به‌صرفه‌ترین انتخاب لیزر.",
-    price: 990000,
+    price: 1500000,
     category: "laser-women",
     subcategory: "سایر",
     featured: true,
@@ -165,7 +165,7 @@ export const services: Service[] = [
     title: "کاربردی",
     description:
       "ترکیبی هوشمندانه از پرتقاضاترین نواحی برای کسانی که همه نواحی بدن را نمی‌خواهند.",
-    price: 890000,
+    price: 1300000,
     category: "laser-women",
     subcategory: "سایر",
   },
@@ -178,7 +178,7 @@ export const services: Service[] = [
     title: "پا کامل",
     description:
       "تمام سطح پا از بالای ران تا مچ در یک جلسه پوشش داده می‌شود؛ با جلسات منظم رویش مو کمتر و نازک‌تر می‌شود.",
-    price: 450000,
+    price: 650000,
     category: "laser-women",
     subcategory: "پا",
   },
@@ -189,7 +189,7 @@ export const services: Service[] = [
     title: "ران",
     description:
       "لیزر موهای زائد ناحیه ران؛ پوستی صاف‌تر بدون نیاز به اصلاح مکرر نتیجه جلسات پیوسته است.",
-    price: 350000,
+    price: 300000,
     category: "laser-women",
     subcategory: "پا",
   },
@@ -200,7 +200,7 @@ export const services: Service[] = [
     title: "ساق پا",
     description:
       "لیزر موهای زائد ناحیه ساق پا؛ مناسب برای پوست نرم و صاف بدون خطر بریدگی و تحریک ناشی اصلاح.",
-    price: 300000,
+    price: 350000,
     category: "laser-women",
     subcategory: "پا",
   },
@@ -213,7 +213,7 @@ export const services: Service[] = [
     title: "شکم کامل",
     description:
       "تمام ناحیه شکم لیزر می‌شود؛ انتخاب رایج برای پوستی یکدست و آماده تابستان.",
-    price: 550000,
+    price: 650000,
     category: "laser-women",
     subcategory: "تنه",
   },
@@ -224,7 +224,7 @@ export const services: Service[] = [
     title: "کمر کامل",
     description:
       "تمام ناحیه کمر از شانه تا پایین کمر پوشش داده می‌شود تا پوست این ناحیه کاملاً صاف بماند.",
-    price: 550000,
+    price: 650000,
     category: "laser-women",
     subcategory: "تنه",
   },
@@ -235,7 +235,7 @@ export const services: Service[] = [
     title: "گودی کمر",
     description:
       "لیزر نقطه‌ای گودی کمر برای تمیزی بیشتر این ناحیه حساس هنگام پوشیدن لباس‌های کمرباز.",
-    price: 200000,
+    price: 250000,
     category: "laser-women",
     subcategory: "تنه",
   },
@@ -246,7 +246,7 @@ export const services: Service[] = [
     title: "خط ناف",
     description:
       "خط میانی ناف که اغلب پرپشت است، لیزر می‌شود تا ناحیه شکم یکدست‌تر دیده شود.",
-    price: 200000,
+    price: 250000,
     category: "laser-women",
     subcategory: "تنه",
   },
@@ -257,7 +257,7 @@ export const services: Service[] = [
     title: "روی باسن",
     description:
       "لیزر سطح رویی باسن با تنظیمات مناسب پوست این ناحیه؛ تمیزی و لطافت طولانی‌مدت.",
-    price: 400000,
+    price: 450000,
     category: "laser-women",
     subcategory: "تنه",
   },
@@ -281,7 +281,7 @@ export const services: Service[] = [
     title: "دست کامل",
     description:
       "از شانه تا مچ یکجا لیزر می‌شود؛ اقتصادی‌تر از رزرو جداگانه بازو و ساعد.",
-    price: 450000,
+    price: 300000,
     category: "laser-women",
     subcategory: "دست",
   },
@@ -292,7 +292,7 @@ export const services: Service[] = [
     title: "ساق دست",
     description:
       "لیزر ناحیه ساعد از آرنج تا مچ برای پوستی صاف در نواحی نمایان دست.",
-    price: 300000,
+    price: 250000,
     category: "laser-women",
     subcategory: "دست",
   },
@@ -303,7 +303,7 @@ export const services: Service[] = [
     title: "بازو",
     description:
       "لیزر ناحیه بازو از شانه تا آرنج؛ مناسب برای استفاده راحت با لباس آستین‌کوتاه.",
-    price: 300000,
+    price: 450000,
     category: "laser-women",
     subcategory: "دست",
   },
@@ -316,7 +316,7 @@ export const services: Service[] = [
     title: "بیکینی",
     description:
       "لیزر ناحیه بیکینی با رعایت کامل بهداشت و حریم خصوصی؛ تمیزی دائمی بدون تحریک پوست.",
-    price: 250000,
+    price: 300000,
     category: "laser-women",
     subcategory: "سایر",
   },
@@ -327,7 +327,7 @@ export const services: Service[] = [
     title: "صورت",
     description:
       "نواحی صورت مانند لب بالا، چانه و خط فک با تنظیمات ملایم مناسب پوست حساس صورت لیزر می‌شود.",
-    price: 250000,
+    price: 300000,
     category: "laser-women",
     subcategory: "سایر",
   },
