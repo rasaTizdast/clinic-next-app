@@ -38,14 +38,14 @@ export function ServicesPreview() {
         </ScrollReveal>
 
         <div className="flex flex-col gap-5 max-w-5xl mx-auto">
-          {featuredServices.map((service, index) => (
-            <ScrollReveal key={service.id} delay={index * 80}>
+          {featuredServices.map((service) => (
+            <ScrollReveal key={service.id}>
               <ServiceCard service={service} variant="light" />
             </ScrollReveal>
           ))}
         </div>
 
-        <ScrollReveal delay={featuredServices.length * 80}>
+        <ScrollReveal>
           <div className="text-center mt-14">
             <Link
               href="/services"

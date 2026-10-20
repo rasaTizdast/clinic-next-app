@@ -111,8 +111,8 @@ export function ServicesPageClient() {
 
           {/* Grid */}
           <div className="flex flex-col gap-5 max-w-5xl mx-auto">
-            {services.map((service, index) => (
-              <ScrollReveal key={service.id} delay={index * 60}>
+            {services.map((service) => (
+              <ScrollReveal key={service.id}>
                 <ServiceCard service={service} />
               </ScrollReveal>
             ))}
