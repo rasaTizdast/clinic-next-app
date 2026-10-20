@@ -41,6 +41,7 @@ export function ScrollReveal({
       className={cn(
         "transition-[opacity,transform] duration-[420ms]",
         "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
+        "motion-reduce:transition-none",
         isVisible
           ? "opacity-100 translate-y-0"
           : "opacity-0 translate-y-6",
