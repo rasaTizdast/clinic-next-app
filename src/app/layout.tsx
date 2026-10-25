@@ -27,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="fa" dir="rtl" className={`${vazirmatn.variable} h-full`}>
+    <html lang="fa" dir="rtl" data-scroll-behavior="smooth" className={`${vazirmatn.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased selection:bg-primary selection:text-white">
         <Header />
         <main className="flex-1">{children}</main>
