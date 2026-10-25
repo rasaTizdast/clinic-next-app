@@ -1,12 +1,13 @@
 "use client";
 
 export default function Error({
-  error,
+  error: _error,
   reset,
 }: {
   error: Error & { digest?: string };
   reset: () => void;
 }) {
+  void _error;
   return (
     <div className="min-h-[80vh] flex items-center justify-center bg-background px-4">
       <div className="text-center max-w-md">
