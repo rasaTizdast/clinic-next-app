@@ -17,7 +17,7 @@ export interface Service {
   featured?: boolean;
 }
 
-export type PackageGroup = "carbon" | "laser-women" | "laser-men";
+export type PackageGroup = "carbon" | "laser-women" | "laser-men" | "other";
 
 export interface PackageTier {
   label: string;
@@ -38,7 +38,7 @@ export interface Testimonial {
   name: string;
   text: string;
   rating: number;
-  avatar: string;
+  avatar?: string;
 }
 
 export interface TeamMember {
@@ -46,7 +46,7 @@ export interface TeamMember {
   name: string;
   role: string;
   bio: string;
-  avatar: string;
+  avatar?: string;
 }
 
 export interface Product {

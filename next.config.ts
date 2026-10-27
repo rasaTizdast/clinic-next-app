@@ -17,6 +17,11 @@ const nextConfig: NextConfig = {
   },
   images: {
     qualities: [75, 100],
+    remotePatterns: [
+      { protocol: "https", hostname: "storage.c2.liara.site" },
+      { protocol: "https", hostname: "barancliniccenter.com" },
+      { protocol: "https", hostname: "www.barancliniccenter.com" },
+    ],
   },
   turbopack: {
     root: path.join(process.cwd()),
