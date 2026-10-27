@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import Image from "next/image";
-import { getTeam } from "@/data";
+import type { TeamMember as TeamMemberType } from "@/lib/types";
 import { StoryChapter } from "@/components/landing/StoryChapter";
 import { TeamMember } from "@/components/shared/TeamMember";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -16,9 +16,7 @@ const stats = [
   { icon: Heart, value: "۹۸٪", label: "رضایت مشتریان" },
 ];
 
-function TeamGrid() {
-  const team = getTeam();
-
+function TeamGrid({ team }: { team: TeamMemberType[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {team.map((member, index) => (
@@ -30,7 +28,7 @@ function TeamGrid() {
   );
 }
 
-export function AboutPageClient() {
+export function AboutPageClient({ team }: { team: TeamMemberType[] }) {
   return (
     <>
       {/* Hero — split diptych style */}
@@ -135,7 +133,7 @@ export function AboutPageClient() {
               </div>
             }
           >
-            <TeamGrid />
+            <TeamGrid team={team} />
           </Suspense>
         </div>
       </section>

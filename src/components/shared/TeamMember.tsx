@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { TeamMember as TeamMemberType } from "@/lib/types";
 
 interface TeamMemberProps {
@@ -11,11 +12,21 @@ export function TeamMember({ member }: TeamMemberProps) {
     <div className="rounded-2xl overflow-hidden bg-surface border border-border/30 hover:border-primary/15 hover:shadow-md transition-all duration-300 group">
       {/* Avatar */}
       <div className="aspect-[3/4] bg-muted/50 overflow-hidden">
-        <div className="w-full h-full bg-gradient-to-br from-primary/5 to-primary/[0.02] flex items-center justify-center">
-          <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
-            {member.name.charAt(0)}
+        {member.avatar ? (
+          <Image
+            src={member.avatar}
+            alt={member.name}
+            width={480}
+            height={640}
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <div className="w-full h-full bg-gradient-to-br from-primary/5 to-primary/[0.02] flex items-center justify-center">
+            <div className="w-20 h-20 rounded-full bg-primary/10 flex items-center justify-center text-2xl font-bold text-primary">
+              {member.name.charAt(0)}
+            </div>
           </div>
-        </div>
+        )}
       </div>
 
       {/* Info */}

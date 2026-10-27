@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowLeft, ArrowRight, Tag } from "lucide-react";
-import { getServiceBySlug } from "@/data";
+import { getPublicService } from "@/lib/public-site/api";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { formatAmount } from "@/lib/utils";
@@ -22,7 +22,7 @@ interface PageProps {
 
 export default async function ServiceDetailPage({ params }: PageProps) {
   const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const service = await getPublicService(slug);
 
   if (!service) {
     notFound();

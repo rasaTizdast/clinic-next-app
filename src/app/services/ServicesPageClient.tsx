@@ -1,7 +1,7 @@
 "use client";
 
-import { getServices, getServicesByCategory } from "@/data";
 import Image from "next/image";
+import type { Service } from "@/lib/types";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useState, useRef } from "react";
@@ -15,13 +15,13 @@ const categories = [
   { key: "facial", label: "فیشیال" },
 ] as const;
 
-export function ServicesPageClient() {
+export function ServicesPageClient({ services }: { services: Service[] }) {
   type CategoryKey = (typeof categories)[number]["key"];
   const [activeCategory, setActiveCategory] = useState<CategoryKey>("all");
   const listTopRef = useRef<HTMLDivElement>(null);
-  const services = activeCategory === "all"
-    ? getServices()
-    : getServicesByCategory(activeCategory);
+  const visibleServices = activeCategory === "all"
+    ? services
+    : services.filter((service) => service.category === activeCategory);
 
   const handleSelect = (key: CategoryKey) => {
     setActiveCategory(key);
@@ -111,7 +111,7 @@ export function ServicesPageClient() {
 
           {/* Grid */}
           <div className="flex flex-col gap-5 max-w-5xl mx-auto">
-            {services.map((service) => (
+            {visibleServices.map((service) => (
               <ScrollReveal key={service.id}>
                 <ServiceCard service={service} />
               </ScrollReveal>

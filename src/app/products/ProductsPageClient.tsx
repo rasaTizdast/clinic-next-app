@@ -1,13 +1,11 @@
 "use client";
 
-import { getProducts } from "@/data";
 import Image from "next/image";
+import type { Product } from "@/lib/types";
 import { ProductCard } from "@/components/shared/ProductCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export function ProductsPageClient() {
-  const products = getProducts();
-
+export function ProductsPageClient({ products }: { products: Product[] }) {
   return (
     <>
       {/* Hero — split diptych style */}

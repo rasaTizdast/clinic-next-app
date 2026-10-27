@@ -7,8 +7,15 @@ import { TestimonialsSection } from "@/components/landing/TestimonialsSection";
 import { CTASection } from "@/components/landing/CTASection";
 import { Suspense } from "react";
 import { Skeleton } from "@/components/ui/Skeleton";
+import { getPublicPackages, getPublicServices, getPublicTestimonials } from "@/lib/public-site/api";
 
-export default function Home() {
+export default async function Home() {
+  const [services, packages, testimonials] = await Promise.all([
+    getPublicServices(),
+    getPublicPackages(),
+    getPublicTestimonials(),
+  ]);
+
   return (
     <>
       <HeroSection />
@@ -43,7 +50,7 @@ export default function Home() {
           </div>
         }
       >
-        <ServicesPreview />
+        <ServicesPreview services={services} />
       </Suspense>
 
       <Suspense
@@ -59,7 +66,7 @@ export default function Home() {
           </div>
         }
       >
-        <PackagesPreview />
+        <PackagesPreview packages={packages} />
       </Suspense>
 
       <Suspense
@@ -75,7 +82,7 @@ export default function Home() {
           </div>
         }
       >
-        <TestimonialsSection />
+        <TestimonialsSection testimonials={testimonials} />
       </Suspense>
 
       <CTASection />

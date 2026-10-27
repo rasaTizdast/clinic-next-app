@@ -2,12 +2,13 @@
 
 import Link from "next/link";
 import { ArrowLeft, Sparkles } from "lucide-react";
-import { getFeaturedServices } from "@/data";
+import type { Service } from "@/lib/types";
 import { ServiceCard } from "@/components/shared/ServiceCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export function ServicesPreview() {
-  const featuredServices = getFeaturedServices();
+export function ServicesPreview({ services }: { services: Service[] }) {
+  const featuredServices = services.filter((service) => service.featured).slice(0, 3);
+  const previewServices = featuredServices.length ? featuredServices : services.slice(0, 3);
 
   return (
     <section className="py-24 sm:py-32 lg:py-40 bg-background relative overflow-hidden border-y border-border/20">
@@ -38,7 +39,7 @@ export function ServicesPreview() {
         </ScrollReveal>
 
         <div className="flex flex-col gap-5 max-w-5xl mx-auto">
-          {featuredServices.map((service) => (
+          {previewServices.map((service) => (
             <ScrollReveal key={service.id}>
               <ServiceCard service={service} variant="light" />
             </ScrollReveal>

@@ -1,12 +1,10 @@
 "use client";
 
-import { getTestimonials } from "@/data";
+import type { Testimonial } from "@/lib/types";
 import { TestimonialCard } from "@/components/shared/TestimonialCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export function TestimonialsSection() {
-  const testimonials = getTestimonials();
-
+export function TestimonialsSection({ testimonials }: { testimonials: Testimonial[] }) {
   return (
     <section className="py-24 sm:py-32 lg:py-40 bg-surface relative overflow-hidden">
       <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-12 relative">

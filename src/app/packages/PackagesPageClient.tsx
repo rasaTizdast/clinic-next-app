@@ -1,7 +1,7 @@
 "use client";
 
-import { getPackages } from "@/data";
 import Image from "next/image";
+import type { Package } from "@/lib/types";
 import { PackageCard } from "@/components/shared/PackageCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { useState, useRef } from "react";
@@ -15,10 +15,9 @@ const groups: { key: PackageGroup | "all"; label: string }[] = [
   { key: "laser-men", label: "لیزر آقایان" },
 ];
 
-export function PackagesPageClient() {
+export function PackagesPageClient({ all }: { all: Package[] }) {
   const [activeGroup, setActiveGroup] = useState<PackageGroup | "all">("all");
   const listTopRef = useRef<HTMLDivElement>(null);
-  const all = getPackages();
   const packages =
     activeGroup === "all" ? all : all.filter((p) => p.group === activeGroup);
 

@@ -2,12 +2,12 @@
 
 import Link from "next/link";
 import { ArrowLeft, Gift } from "lucide-react";
-import { getPackages } from "@/data";
+import type { Package } from "@/lib/types";
 import { PackageCard } from "@/components/shared/PackageCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 
-export function PackagesPreview() {
-  const packages = getPackages().slice(0, 3);
+export function PackagesPreview({ packages: allPackages }: { packages: Package[] }) {
+  const packages = allPackages.slice(0, 3);
 
   return (
     <section className="py-24 sm:py-32 lg:py-40 bg-background relative overflow-hidden">

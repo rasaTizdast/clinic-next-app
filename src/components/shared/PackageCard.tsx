@@ -23,6 +23,10 @@ const groupConfig = {
     label: "لیزر آقایان",
     chipClass: "bg-foreground/10 text-foreground/70",
   },
+  other: {
+    label: "پکیج ویژه",
+    chipClass: "bg-primary/10 text-primary",
+  },
 };
 
 export function PackageCard({ pkg }: PackageCardProps) {
