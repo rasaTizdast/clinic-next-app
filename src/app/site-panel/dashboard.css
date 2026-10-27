@@ -1,5 +1,5 @@
-body:has(.dashboard-root) > header,
-body:has(.dashboard-root) > footer {
+body:has(.dashboard-stage) > header,
+body:has(.dashboard-stage) > footer {
   display: none;
 }
 
