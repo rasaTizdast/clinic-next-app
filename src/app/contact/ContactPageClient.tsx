@@ -4,6 +4,7 @@ import { MapPin, Phone, Clock } from "lucide-react";
 import Image from "next/image";
 import { Container } from "@/components/layout/Container";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { PhoneNumberMenu } from "@/components/shared/PhoneNumberMenu";
 
 const contactInfo = [
   {
@@ -15,8 +16,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "تلفن",
-    value: "۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷",
-    href: "tel:+989100300875",
+    phoneMenu: true,
   },
   {
     icon: Clock,
@@ -77,13 +77,8 @@ export function ContactPageClient() {
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 lg:gap-16">
             {contactInfo.map((item) => {
-              const content = item.href ? (
-                <a
-                  href={item.href}
-                  className="text-base sm:text-lg font-bold text-foreground hover:text-primary transition-colors duration-200"
-                >
-                  {item.value}
-                </a>
+              const content = item.phoneMenu ? (
+                <PhoneNumberMenu variant="cta" className="w-full sm:w-auto" />
               ) : (
                 <p className="text-base sm:text-lg font-bold text-foreground leading-relaxed">
                   {item.value}

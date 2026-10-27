@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { MapPin, Phone, Clock } from "lucide-react";
+import { PhoneNumberMenu } from "@/components/shared/PhoneNumberMenu";
 
 const footerLinks = {
   services: [
@@ -61,12 +62,7 @@ export function Footer() {
           </div>
           <div className="flex items-center gap-3">
             <Phone className="h-4 w-4 shrink-0 text-primary/60" />
-            <a
-              href="tel:+989100300875"
-              className="text-sm text-foreground/70 font-light hover:text-primary transition-colors duration-200"
-            >
-              ۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷
-            </a>
+            <PhoneNumberMenu variant="footer" />
           </div>
           <div className="flex items-center gap-3">
             <Clock className="h-4 w-4 shrink-0 text-primary/60" />
