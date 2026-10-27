@@ -3,8 +3,9 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef, useCallback } from "react";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { PhoneNumberMenu } from "@/components/shared/PhoneNumberMenu";
 
 const navLinks = [
   { href: "/", label: "خانه" },
@@ -108,13 +109,7 @@ export function Header() {
             <nav className="flex items-center gap-1">{renderedNavLinks}</nav>
           </div>
           <div className="flex items-center gap-4">
-            <a
-              href="tel:+989100300875"
-              className="flex items-center gap-2 text-xs font-semibold text-foreground/80 hover:text-primary transition-colors duration-200"
-            >
-              <span>۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷</span>
-              <Phone className="h-3.5 w-3.5" />
-            </a>
+            <PhoneNumberMenu />
             <Link
               href="/contact"
               className="text-sm font-semibold bg-primary hover:bg-primary-light text-white px-5 py-2 rounded-full transition-all duration-200"
@@ -128,7 +123,7 @@ export function Header() {
       {/* ------ Tablet / Mobile: floating pill ------ */}
       <header
         className={cn(
-          "fixed top-4 left-1/2 -translate-x-1/2",
+          "fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] left-1/2 -translate-x-1/2",
           "inline-flex items-center gap-3 sm:gap-5",
           "px-4 sm:px-5 py-2.5",
           "bg-background/78 backdrop-blur-xl border border-border/40 rounded-full shadow-pill",
@@ -167,12 +162,12 @@ export function Header() {
           aria-modal="true"
           aria-label="منوی ناوبری"
           className={cn(
-            "lg:hidden absolute top-full left-1/2 -translate-x-1/2 mt-3",
+            "lg:hidden absolute bottom-full left-1/2 -translate-x-1/2 mb-3",
             "transition-all duration-250",
             "[transition-timing-function:cubic-bezier(0.16,1,0.3,1)]",
             mobileMenuOpen
               ? "opacity-100 translate-y-0 visible"
-              : "opacity-0 -translate-y-2 pointer-events-none invisible"
+              : "opacity-0 translate-y-2 pointer-events-none invisible"
           )}
         >
           <nav className="p-3 space-y-0.5 bg-background/95 backdrop-blur-xl rounded-2xl shadow-lg border border-border/30 w-auto min-w-[260px] max-w-[90vw]">
@@ -194,14 +189,8 @@ export function Header() {
                 {link.label}
               </Link>
             ))}
-            <div className="pt-3 px-4 mt-2 border-t border-border/50">
-              <a
-                href="tel:+989100300875"
-                className="flex items-center gap-2 py-1 text-sm font-semibold text-primary"
-              >
-                <Phone className="h-4 w-4" />
-                <span>۰۹۱۰۰۳۰۰۸۷۵ / ۰۹۱۰۰۳۰۰۸۷۶ / ۰۹۱۰۰۳۰۰۸۷۷</span>
-              </a>
+            <div className="mt-2 border-t border-border/50 px-4 pt-3">
+              <PhoneNumberMenu className="w-full" />
             </div>
           </nav>
         </div>

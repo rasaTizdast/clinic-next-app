@@ -31,7 +31,7 @@ export default function RootLayout({
     <html lang="fa" dir="rtl" data-scroll-behavior="smooth" className={`${vazirmatn.variable} h-full`}>
       <body className="min-h-full flex flex-col font-sans antialiased selection:bg-primary selection:text-white">
         <Header />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 pb-24 lg:pb-0">{children}</main>
         <Footer />
       </body>
     </html>
